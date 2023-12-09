@@ -25,3 +25,17 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+Important Command<br />
+
+ng new angularTodo --no-strict --standalone false --routing false<br />
+Select Basic CSS<br />
+Select Server-Side Rendering : No<br />
+
+ng g c product-list<br />
+
+
+
+
+
