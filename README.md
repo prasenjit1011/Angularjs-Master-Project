@@ -1,4 +1,10 @@
-# AngularTodo
+# Angular master project.
+
+## Important command list
+
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
 
@@ -34,6 +40,8 @@ Select Basic CSS<br />
 Select Server-Side Rendering : No<br />
 
 ng g c product-list<br />
+Arr = [{},{},{}]<br />
+*ngFor="let prod of products"<br />
 
 
 

@@ -1,3 +1,8 @@
-<div class="bd">
-    <p>product-details works!</p>
+<div class="details">
+    <h3>{{ title }}</h3>
+    <hr />
+    <h3>Id : {{ id }}</h3>
+    <h3>Name : {{ name }}</h3>
+    <button [routerLink]="['/product-details', '4', 'Sweet']">Sweet</button>
+    <button [routerLink]="['/product-details', '5', 'Fruit']">Fruit</button>
 </div>

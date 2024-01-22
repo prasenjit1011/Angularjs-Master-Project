@@ -1,3 +1,11 @@
-<div class="bd">
-    <p>product-list works!</p>
+<div class="list">
+    <h3>{{ title }}</h3>
+    <hr />
+    <ol>
+        <li *ngFor="let prod of products">
+            <a routerLink="/product-details/{{ prod['price']}}/{{ prod['name'] }}">
+                {{ prod['name'] }}, ${{ prod['price']}}
+            </a> 
+        </li>
+    </ol>
 </div>

@@ -1,3 +1,35 @@
-<div class="bd">
-    <p>product-frm works!</p>
+<div class="frm">
+    <h3>{{ title }}</h3>
+    <hr />
+    <div class="frmBody">
+        <form (ngSubmit)="onSubmit(prodFrm)" #prodFrm="ngForm">
+            <label>Fruit Name</label>
+            <input 
+                type="text" 
+                ngModel
+                name="product_name"
+                required=""
+                />
+            <label>Price</label>
+            <input 
+                type="number"
+                ngModel
+                name="product_price"
+                />
+            <label>Types</label>
+            <select 
+                id="type" 
+                name="type"
+                [ngModel]="selectedType"
+                >
+                <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+            </select>
+            <hr />
+            <input 
+                type="submit"
+                value="Submit"
+                [disabled]="!prodFrm.valid"
+                />
+        </form>
+    </div>
 </div>

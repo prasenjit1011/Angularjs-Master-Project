@@ -1,6 +1,6 @@
-.bd{
+.details{
     float: left; 
-    height: 700px; 
-    width: 33%; 
+    height: 500px; 
+    width: 100%; 
     background-color: #3a70b7;
 }
