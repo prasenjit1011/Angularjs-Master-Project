@@ -1,11 +1,65 @@
-# Angular master project.
+# Angular master
+
+### Module base project :
+In Angular, a module is a mechanism to group components, directives, pipes and services that are related, in such a way that can be combined with other modules to create an application.
+
+### Component base project :
+Standalone components provide a simplified way to build Angular applications. Each standalone component is developed independently, with its own set of dependencies and functionality. 
+
+
+### Data daigram / Important files / Life cycle
+tsconfig.app.json --> /src/main.ts --> /src/app/app.module.ts --> <br />
+app.module.ts --> app.component.ts, navbar.component.ts, product-list.component.ts ...<br />
+
+### Angular Decorators 
+import { Component, ViewEncapsulation } from '@angular/core'; <br />
+
+### @Component Decorators
+##### Selector must be unique, component can be access using Selector 
+eg : selector: 'app-navbar' <br />
+access component using : <app-navbar></app-navbar> <br />
+
+##### templateUrl : app.component.html
+##### styleUrl : app.component.css
+##### app.component.spec.ts for testing the app
+
+
 
 ## Important command list
+npm i -g @angular/cli <br />
+ng new projectName --no-strict --standalone false --routing false <br />
+** Server-Side rendering : No <br />
+
+ng serve <br />
+
+
+## Important package need to install
+ng add @ngrx/store <br />
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+#
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
 
 ## Development server
@@ -46,4 +100,43 @@ Arr = [{},{},{}]<br />
 
 
 
+
+Please build an API for a movie lobby for OTT applications. The lobby has a collection of movies with genre, rating, and streaming link. The API should allow users to:
+1. List all the movies in the lobby
+2. Search for a movie by title or genre
+3. Add a new movie to the lobby
+4. Update an existing movie information (title, genre, rating, or streaming link)
+5. Delete a movie from the lobby
+
+
+
+
+The API should be built using TypeScript and MongoDB. 
+You can use any Node.js framework (such as Express or Nest.js) and any MongoDB library (such as Mongoose or MongoDB driver).
+
+Please build the API with the following endpoints:
+- `GET /movies`: List all the movies in the lobby
+- `GET /search?q={query}`: Search for a movie by title or genre
+- `POST /movies`: Add a new movie to the lobby (requires "admin" role)
+- `PUT /movies/:id`: Update an existing movie's information (title, genre, rating, or streaming link) (requires "admin" role)
+- `DELETE /movies/:id`: Delete a movie from the lobby (requires "admin" role)
+
+
+You can assume that the request and response payloads will be in JSON format. 
+The movie data should be ideally stored in a MongoDB database However if you are out of time then you can also use in memory DB.
+
+Please provide clear instructions on how to set up and run the API on a local machine. 
+Also, please include a brief documentation of the API, including sample requests and responses for each endpoint. 
+Additionally, please provide a set of test cases and ensure that the tests are written in TypeScript as well.
+
+Depending on the time left it will be nice if you can use caching to reduce the load on the database and speed up response times.
+To ensure quality, please implement the following measures:
+- Write unit tests and integration tests for each endpoint to ensure that the API functions as expected. 
+You can use any testing framework (such as Jest or Mocha). If you are out of time then add at least few integration and unit tests.
+- Use a code quality tool (such as ESLint) to ensure that the code follows best practices and is maintainable.
+
+
+Caching, 
+Testing framework (such as Jest or Mocha)
+ESLint
 

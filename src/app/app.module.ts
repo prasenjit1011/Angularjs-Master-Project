@@ -9,6 +9,8 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
 import { ProductFrmComponent } from './product/product-frm/product-frm.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './store/counter.reducer';
 
 
 //const myRoute: Route = [];
@@ -33,7 +35,10 @@ const appRoute = [
     BrowserModule,
     RouterModule.forRoot(appRoute),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({
+      counter:counterReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
