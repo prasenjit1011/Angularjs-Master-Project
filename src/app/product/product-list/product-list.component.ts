@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-list',
@@ -8,9 +9,15 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class ProductListComponent {
   title     = '-: Product Listing :-'
-  products  = [
-                {name:'Apple', price:100}, 
-                {name:'Banna', price : 5}, 
-                {name:'Orange', price:12}
-              ];
+  products  = undefined;
+
+  constructor(private http: HttpClient){
+    let apiUrl = 'https://gh4csx-3000.csb.app/api/hotels/list/';
+    this.http
+        .get(apiUrl)
+        .subscribe(data=>(
+          console.log(this.title),
+          this.products = data
+        ));
+  }
 }
