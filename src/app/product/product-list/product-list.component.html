@@ -3,7 +3,7 @@
     <hr />
     <ol>
         <li *ngFor="let prod of products">
-            <a routerLink="/product-details/{{ prod['price']}}/{{ prod['name'] }}">
+            <a routerLink="/product-details/{{ prod['_id']}}/data">
                 {{ prod['name'] }}, ${{ prod['price']}}
             </a> 
         </li>

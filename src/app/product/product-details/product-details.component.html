@@ -1,8 +1,13 @@
 <div class="details">
-    <h3>{{ title }}</h3>
+    <p>{{ title }}</p>
     <hr />
-    <h3>Id : {{ id }}</h3>
-    <h3>Name : {{ name }}</h3>
-    <button [routerLink]="['/product-details', '4', 'Sweet']">Sweet</button>
-    <button [routerLink]="['/product-details', '5', 'Fruit']">Fruit</button>
+    <p>Id : {{ products['_id'] }}</p>
+    <p>Name : {{ products['name'] }}</p>
+    <p>Details : {{ products['description'] }}</p>
+    
+    <img src="{{ apiHost+products['imageUrl'] }}" />
+    
+    <button [routerLink]="['/product-details-page', '4', 'Sweet']">Prev Work In progress</button>
+    <button [routerLink]="['/product-details-page', '5', 'Fruit']">Next Work In progress</button>
+    
 </div>

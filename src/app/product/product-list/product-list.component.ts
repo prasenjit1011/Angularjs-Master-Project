@@ -16,7 +16,7 @@ export class ProductListComponent {
     this.http
         .get(apiUrl)
         .subscribe(data=>(
-          console.log(this.title),
+          console.log(data),
           this.products = data
         ));
   }
