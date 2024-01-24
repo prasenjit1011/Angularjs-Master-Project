@@ -1,6 +1,22 @@
 .list{
     float: left; 
-    height: 500px; 
     width: 100%; 
     background-color: #673ab7;
+}
+
+.container_body{
+    width: 1000px;
+    height: 120vh;
+    padding: 10px;
+    margin: auto;
+
+}
+
+.box{
+    width: 230px;
+    float: left;
+}
+
+img{
+    width: 200px;
 }

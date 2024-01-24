@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProductListComponent {
   title     = '-: Product Listing :-'
   products  = undefined;
+  apiHost = 'https://gh4csx-3000.csb.app/';
 
   constructor(private http: HttpClient){
     let apiUrl = 'https://gh4csx-3000.csb.app/api/hotels/list/';

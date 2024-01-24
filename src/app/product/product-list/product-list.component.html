@@ -1,11 +1,12 @@
 <div class="list">
     <h3>{{ title }}</h3>
     <hr />
-    <ol>
-        <li *ngFor="let prod of products">
-            <a routerLink="/product-details/{{ prod['_id']}}/data">
-                {{ prod['name'] }}, ${{ prod['price']}}
-            </a> 
-        </li>
-    </ol>
+    <div class="container_body">
+    <div class="box" *ngFor="let prod of products">
+        <img src="{{ apiHost+prod['imageUrl'] }}" />
+        <a routerLink="/product-details/{{ prod['_id']}}/data">
+            {{ prod['name'] }}, ${{ prod['price']}}
+        </a> 
+    </div>
+</div>
 </div>
