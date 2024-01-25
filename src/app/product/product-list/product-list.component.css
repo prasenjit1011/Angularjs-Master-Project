@@ -14,7 +14,12 @@
 
 .box{
     width: 230px;
+    height: 180px;
     float: left;
+    border: 1px solid;
+    margin: 5px;
+    padding: 2px;
+
 }
 
 img{

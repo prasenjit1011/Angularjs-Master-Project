@@ -20,5 +20,14 @@ export class ProductListComponent {
           console.log(data),
           this.products = data
         ));
+
+        let apiUrl2 = 'http://localhost:3100/api/alldata'
+        this.http
+            .get(apiUrl2)
+            .subscribe(data=>(
+              console.log(data)
+              //this.products = data
+            ));
+
   }
 }
