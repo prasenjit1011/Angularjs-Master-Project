@@ -1,0 +1,19 @@
+.hide{
+	display:none;
+}
+
+.box{
+	float:left;
+	border-bottom:1px solid;
+	margin:7px;
+	padding:5px 10px 35px;
+}
+
+h3{
+	width:100%;
+}
+
+.back{
+	float:right;
+	color:#00F;
+}

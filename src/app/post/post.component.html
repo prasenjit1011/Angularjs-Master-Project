@@ -1,0 +1,14 @@
+<div class="list">
+    <h3>{{ title }}
+	<a routerLink="{{ backurl }}" class="back">Back</a> 
+	</h3>
+    <hr />
+    <div class="container_body">
+		<p class="{{ loading ? '' : 'hide'}}">Loading....</p>
+		<div class="box" *ngFor="let post of posts">
+			<span class="title">{{ post['id']}} : {{ post['title'] }}</span><br />
+			<span class="body">{{ post['body']}}</span><br />
+			<a routerLink="/users/{{ post['userId'] }}/posts/{{ post['id']}}/comments">See Comments</a> 
+		</div>
+	</div>
+</div>

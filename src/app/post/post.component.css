@@ -1,0 +1,32 @@
+.hide{
+	display:none;
+}
+
+.box{
+	width:100%;
+	float:left;
+	border:0px solid;
+	margin:7px;
+	padding:10px;
+}
+
+.title{
+	font-size:20px;
+	text-decoration:underline;
+}
+
+.body{
+	font-size:15px;
+}
+
+a{
+	color:#00F;
+}
+
+h3{
+	width:100%;
+}
+.back{
+	float:right;
+	color:#00F;
+}

@@ -1,0 +1,13 @@
+<div class="list">
+    <h3>{{ title }}</h3>
+    <hr />
+    <div class="container_body">
+		<p class="{{ loading ? '' : 'hide'}}">Loading....</p>
+		<div class="box" *ngFor="let user of users">
+			Name : {{ user['name'] }}<br />
+			Username : {{ user['username']}}<br />
+			Email Id : {{ user['email']}}<br /><br />
+			<a routerLink="/users/{{ user['id']}}/posts">See Post</a> 
+		</div>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+.hide{
+	display:none;
+}
+
+.box{
+	width:257px;
+	height:150px;
+	float:left;
+	border:1px solid;
+	margin:7px;
+	padding:10px;
+}
+
+a{
+	color:#00F;
+}

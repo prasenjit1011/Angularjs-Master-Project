@@ -1,0 +1,16 @@
+<div class="list">
+    <h3>
+		{{ title }}
+		<a routerLink="{{ backurl }}" class="back">Back</a>
+	</h3> 
+    <hr />
+    <div class="container_body">
+		<p class="{{ loading ? '' : 'hide'}}">Loading....</p>
+		<div class="box" *ngFor="let comment of comments">
+			<span class="title">Name : {{ comment['name'] }}</span><br />
+			<span class="body">Email Id :{{ comment['email'] }}</span><br />
+			<span class="body">Details :</span><br />
+			<span class="body">{{ comment['body']}}</span><br />
+		</div>
+	</div>
+</div>

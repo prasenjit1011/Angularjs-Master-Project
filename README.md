@@ -1,27 +1,38 @@
-# AngularTodo
+# Angular master
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
+### Module base project :
+In Angular, a module is a mechanism to group components, directives, pipes and services that are related, in such a way that can be combined with other modules to create an application.
 
-## Development server
+### Component base project :
+Standalone components provide a simplified way to build Angular applications. Each standalone component is developed independently, with its own set of dependencies and functionality. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Data daigram / Important files / Life cycle
+tsconfig.app.json --> /src/main.ts --> /src/app/app.module.ts --> <br />
+app.module.ts --> app.component.ts, navbar.component.ts, product-list.component.ts ...<br />
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Angular Decorators 
+import { Component, ViewEncapsulation } from '@angular/core'; <br />
 
-## Build
+### @Component Decorators
+##### Selector must be unique, component can be access using Selector 
+eg : selector: 'app-navbar' <br />
+access component using : <app-navbar></app-navbar> <br />
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+##### templateUrl : app.component.html
+##### styleUrl : app.component.css
+##### app.component.spec.ts for testing the app
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Important command list
+npm i -g @angular/cli <br />
+ng new projectName --no-strict --standalone false --routing false <br />
+** Server-Side rendering : No <br />
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+ng serve <br />
+ng generate component compName <br />
+ng generate `directive|pipe|service|class|guard|interface|enum|module` <br />
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
