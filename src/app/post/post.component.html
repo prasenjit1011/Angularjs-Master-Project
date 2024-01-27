@@ -5,6 +5,7 @@
     <hr />
     <div class="container_body">
 		<p class="{{ loading ? '' : 'hide'}}">Loading....</p>
+		<p class="{{ !apiMsg ? 'hide' : ''}}">{{ apiMsg }}</p>
 		<div class="box" *ngFor="let post of posts">
 			<span class="title">{{ post['id']}} : {{ post['title'] }}</span><br />
 			<span class="body">{{ post['body']}}</span><br />

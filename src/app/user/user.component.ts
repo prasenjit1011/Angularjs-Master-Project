@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserComponent {
 	title		= '-: User Listing :-'
+	apiMsg		= undefined;
 	loading		= true;
 	users		= undefined;
 	apiUrl		= 'http://localhost:3100/users';
@@ -15,10 +16,11 @@ export class UserComponent {
 	constructor(private http: HttpClient){		
         this.http
             .get(this.apiUrl)
-            .subscribe(data=>(
-				console.log(data),
+            .subscribe(result=>(
+				console.log(result['data']),
 				this.loading	= false,
-				this.users 		= data
+				this.apiMsg		= result['statusCode'] != 200 ? result['msg'] : undefined,
+				this.users 		= result['data']
             ));
 	}
 }

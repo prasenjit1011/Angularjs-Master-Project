@@ -8,7 +8,8 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrl: './comment.component.css'
 })
 export class CommentComponent {
-	title			= '-: Comment Listing :-'
+	title			= '-: Comment Listing :-';
+	apiMsg			= undefined;
 	loading			= true;
 	backurl			= '';
 	userId			= undefined
@@ -22,10 +23,11 @@ export class CommentComponent {
 		
 		this.http
             .get('http://localhost:3100/posts/'+this.route.snapshot.params['id']+'/comments')
-            .subscribe(data=>(
-				console.log(data),
+            .subscribe(result=>(
+				console.log(result['data']),
 				this.loading	= false,
-				this.comments 	= data
+				this.apiMsg		= result['statusCode'] != 200 ? result['msg'] : undefined,
+				this.comments 	= result['data']
             ));
 	}
 }

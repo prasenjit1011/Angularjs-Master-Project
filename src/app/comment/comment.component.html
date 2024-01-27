@@ -6,6 +6,7 @@
     <hr />
     <div class="container_body">
 		<p class="{{ loading ? '' : 'hide'}}">Loading....</p>
+		<p class="{{ !apiMsg ? 'hide' : ''}}">{{ apiMsg }}</p>
 		<div class="box" *ngFor="let comment of comments">
 			<span class="title">Name : {{ comment['name'] }}</span><br />
 			<span class="body">Email Id :{{ comment['email'] }}</span><br />

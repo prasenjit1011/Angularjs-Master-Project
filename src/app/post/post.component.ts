@@ -8,7 +8,8 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrl: './post.component.css'
 })
 export class PostComponent {
-	title		= '-: Post Listing :-'
+	title		= '-: Post Listing :-';
+	apiMsg		= undefined;
 	loading		= true;
 	backurl		= '';
 	users		= undefined;
@@ -19,10 +20,11 @@ export class PostComponent {
 		
         this.http
             .get('http://localhost:3100/users/'+this.route.snapshot.params['id']+'/posts')
-            .subscribe(data=>(
-				console.log(data),
+            .subscribe(result=>(
+				console.log(result),
 				this.loading	= false,
-				this.posts 		= data
+				this.apiMsg		= result['statusCode'] != 200 ? result['msg'] : undefined,
+				this.posts 		= result['data']
             ));
 	}
 }

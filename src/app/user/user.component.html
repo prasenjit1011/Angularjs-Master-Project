@@ -3,6 +3,7 @@
     <hr />
     <div class="container_body">
 		<p class="{{ loading ? '' : 'hide'}}">Loading....</p>
+		<p class="{{ !apiMsg ? 'hide' : ''}}">{{ apiMsg }}</p>
 		<div class="box" *ngFor="let user of users">
 			Name : {{ user['name'] }}<br />
 			Username : {{ user['username']}}<br />
