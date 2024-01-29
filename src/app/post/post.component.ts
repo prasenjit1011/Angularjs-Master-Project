@@ -11,12 +11,11 @@ export class PostComponent {
 	title		= '-: Post Listing :-';
 	apiMsg		= undefined;
 	loading		= true;
-	backurl		= '';
+	backurl		= '/';
 	users		= undefined;
 	posts		= undefined;
 	
 	constructor(private route:ActivatedRoute, private http: HttpClient){
-		this.backurl = '/';
 		
         this.http
             .get('http://localhost:3100/users/'+this.route.snapshot.params['id']+'/posts')

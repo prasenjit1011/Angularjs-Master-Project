@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { retry } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -16,6 +17,9 @@ export class UserComponent {
 	constructor(private http: HttpClient){		
         this.http
             .get(this.apiUrl)
+			.pipe(
+				retry(2)
+			)
             .subscribe(result=>(
 				console.log(result['data']),
 				this.loading	= false,
