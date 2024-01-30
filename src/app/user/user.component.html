@@ -1,14 +1,21 @@
 <div class="list">
-    <h3>{{ title }}</h3>
+    <h3>{{ title }}, Page No {{ page }}</h3>
+	
+		<a routerLink="/users/1">Page 1</a> &nbsp;
+		<a routerLink="/users/2">Page 2</a> 
+	
     <hr />
     <div class="container_body">
 		<p class="{{ loading ? '' : 'hide'}}">Loading....</p>
 		<p class="{{ !apiMsg ? 'hide' : ''}}">{{ apiMsg }}</p>
-		<div class="box" *ngFor="let user of users">
-			Name : {{ user['name'] }}<br />
-			Username : {{ user['username']}}<br />
-			Email Id : {{ user['email']}}<br /><br />
-			<a routerLink="/users/{{ user['id']}}/posts">See Post</a> 
+		<div *ngFor="let user of users; index as key">
+			<div class="box" *ngIf="key>=(page-1)*cnt && key<=page*cnt-1 ">
+				Sl : {{ key+1 }} <br />
+				Name : {{ user['name'] }}<br />
+				Username : {{ user['username']}}<br />
+				Email Id : {{ user['email']}}<br /><br />
+				<a routerLink="/users/{{ user['id']}}/posts">See Post</a> 
+			</div>
 		</div>
 	</div>
 </div>

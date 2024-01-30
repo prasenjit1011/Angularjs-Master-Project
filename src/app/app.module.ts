@@ -14,6 +14,7 @@ import { CommentComponent } from './comment/comment.component';
 
 const appRoute = [
   {path : '', component:UserComponent},
+  {path : 'users/:id', component:UserComponent},
   {path : 'users/:id/posts', component:PostComponent},
   {path : 'users/:userId/posts/:id/comments', component:CommentComponent}
 ];

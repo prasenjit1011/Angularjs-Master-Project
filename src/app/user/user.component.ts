@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Params } from '@angular/router';
 import { retry } from 'rxjs';
 
 @Component({
@@ -12,9 +13,13 @@ export class UserComponent {
 	apiMsg		= undefined;
 	loading		= true;
 	users		= undefined;
+	page 		= 1;
+	cnt 		= 5;
 	apiUrl		= 'http://localhost:3100/users';
 	
-	constructor(private http: HttpClient){		
+	constructor(private route:ActivatedRoute, private http: HttpClient){		
+		this.page = this.route.snapshot.params['id'] ?? 1;
+
         this.http
             .get(this.apiUrl)
 			.pipe(
