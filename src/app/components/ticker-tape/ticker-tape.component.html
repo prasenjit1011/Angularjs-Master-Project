@@ -1,0 +1,32 @@
+<div class="content">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Sid</th>
+            <th class="amt">LTP</th>
+            <th>dyChange</th>
+            <th>wkChange</th>
+            <th>mnChange</th>
+            <th>low52w</th>
+            <th>high52w</th>
+            <th>vol</th>
+        </thead>
+        <tbody>
+            <tr class="box" *ngFor="let val of ltpdata">
+                <td>NA</td>
+                <td>{{ val['sid']}}</td>
+                <td class="amt">
+                    {{ val['price'] | number:'1.0-0'  }}
+                </td>
+                <td>{{ val['dyChange'] }}</td>
+                <td>
+                    {{ val['wkChange'] | number:'1.0-0' }}
+                </td>
+                <td>{{ val['mnChange'] | number:'1.0-0' }}</td>
+                <td>{{ val['low52w'] | number:'1.0-0' }}</td>
+                <td>{{ val['high52w'] | number:'1.0-0' }}</td>
+                <td>{{ val['vol'] | number:'1.0-0' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,16 @@
+.content{
+    background-color: #a9d5ed;
+    width: 1340px;
+    padding: 0.1rem;
+}
+table{
+    margin: 0 10px;
+    border: 1px solid;
+}
+th, td{
+    width: 150px;
+    text-align: center;
+}
+.amt{
+    text-align: right;
+}

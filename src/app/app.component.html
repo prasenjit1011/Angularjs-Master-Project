@@ -67,7 +67,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 0.1rem;
     box-sizing: inherit;
     position: relative;
   }
@@ -178,14 +178,10 @@
 </style>
 
 <main class="main">
-  <div class="content">
-    <div class="left-side">
-      <div class="main">
-        <app-navbar></app-navbar>
-        <router-outlet></router-outlet>
-      </div>
+    <div>
+      <app-navbar></app-navbar>
+      <router-outlet></router-outlet>
     </div>
-  </div>
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
