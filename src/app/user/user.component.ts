@@ -14,11 +14,13 @@ export class UserComponent {
 	loading		= true;
 	users		= undefined;
 	page 		= 1;
-	cnt 		= 5;
+	cnt 		= 3;
 	apiUrl		= 'http://localhost:3100/users';
 	
 	constructor(private route:ActivatedRoute, private http: HttpClient){		
 		this.page = this.route.snapshot.params['id'] ?? 1;
+
+		console.log('Page No : '+this.page);
 
         this.http
             .get(this.apiUrl)
