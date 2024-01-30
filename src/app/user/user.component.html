@@ -1,14 +1,26 @@
 <div class="list">
     <h3>{{ title }}, Page No {{ page }}</h3>
-	
+		<a
+			[routerLink]="['/client']"
+			[queryParams]="{ pageno: 1}"
+		>
+			Page 1
+		</a> &nbsp; &nbsp;
+		<a
+			[routerLink]="['/client']"
+			[queryParams]="{ pageno: 2}"
+		>
+			Page 2
+		</a> &nbsp; &nbsp;
+		<a
+			[routerLink]="['/client']"
+			[queryParams]="{ pageno: 3}"
+		>
+			Page 3
+		</a> &nbsp; &nbsp;
+		 
 
-		<a routerLink="/">First Page</a> &nbsp; &nbsp;
-		<a routerLink="/users/1">Page 1</a> &nbsp; &nbsp;
-		<a routerLink="/users/2">Page 2</a> &nbsp; &nbsp; 
-		<a routerLink="/users/3">Page 3</a> &nbsp; &nbsp; 
-		<a routerLink="/users/3">Last Page</a> &nbsp; &nbsp;
-		
-	
+
     <hr />
     <div class="container_body">
 		<p class="{{ loading ? '' : 'hide'}}">Loading....</p>

@@ -17,8 +17,8 @@ export class UserComponent {
 	cnt 		= 3;
 	apiUrl		= 'http://localhost:3100/users';
 	
-	constructor(private route:ActivatedRoute, private http: HttpClient){		
-		this.page = this.route.snapshot.params['id'] ?? 1;
+	constructor(private route:ActivatedRoute, private http: HttpClient){
+		this.page = this.route.snapshot.params['pageid'] ?? 1;
 
 		console.log('Page No : '+this.page);
 
@@ -34,4 +34,15 @@ export class UserComponent {
 				this.users 		= result['data']
             ));
 	}
+
+	ngOnInit() {
+		this.route.queryParams
+		  .subscribe(params => {
+			console.log(params.pageno);
+			this.page = params.pageno;
+		  }
+		);
+	  }
+
+
 }

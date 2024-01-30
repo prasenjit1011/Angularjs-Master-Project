@@ -16,7 +16,6 @@ export class PostComponent {
 	posts		= undefined;
 	
 	constructor(private route:ActivatedRoute, private http: HttpClient){
-		
         this.http
             .get('http://localhost:3100/users/'+this.route.snapshot.params['id']+'/posts')
             .subscribe(result=>(
