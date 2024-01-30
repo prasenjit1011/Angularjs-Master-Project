@@ -6,10 +6,12 @@
 table{
     margin: 0 10px;
     border: 1px solid;
+    border-collapse: collapse;
 }
 th, td{
     width: 150px;
     text-align: center;
+    padding: 10px 5px;
 }
 .amt{
     text-align: right;

@@ -1,6 +1,7 @@
 <div class="content">
-    <table>
+    <table border="1">
         <thead>
+            <th>Name</th>
             <th>Sid</th>
             <th class="amt">LTP</th>
             <th>dyChange</th>
@@ -12,6 +13,7 @@
         </thead>
         <tbody>
             <tr class="box" *ngFor="let val of ltpdata">
+                <td>{{ sidData[val['sid']] }}</td>
                 <td>{{ val['sid']}}</td>
                 <td class="amt">
                     {{ val['price'] | number:'1.0-0'  }}

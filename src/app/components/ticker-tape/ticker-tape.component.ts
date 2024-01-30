@@ -8,8 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TickerTapeComponent {
   ltpdata = undefined;
-  //apiHost = 'http://localhost:3000';
-  apiHost = 'https://mmsv6q-3000.csb.app';
+  sidData = undefined;
+  apiHost = 'http://localhost:3000';
+  ////apiHost = 'https://mmsv6q-3000.csb.app';
 
   constructor(private http: HttpClient){
     let apiUrl = this.apiHost+'/stock/list';
@@ -17,8 +18,9 @@ export class TickerTapeComponent {
     this.http
         .get(apiUrl)
         .subscribe(data=>(
-          console.log(data),
-          this.ltpdata = data['apiData']
+          console.log(data['sidData']['ADAG']),
+          this.sidData  = data['sidData'],
+          this.ltpdata  = data['apiData']
         ));
 
   }
