@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class TickerTapeComponent {
   ltpdata = undefined;
   sidData = undefined;
-  /////apiHost = 'http://localhost:3000';
   apiHost = 'https://mmsv6q-3000.csb.app';
 
   constructor(private http: HttpClient){
