@@ -8,7 +8,7 @@
     <div class="container_body">
 		<p class="{{ loading ? '' : 'hide'}}">Loading....</p>
 		<p class="{{ !apiMsg ? 'hide' : ''}}">{{ apiMsg }}</p>
-		<div *ngFor="let user of users; index as key">
+		<ng-container  *ngFor="let user of users; index as key">
 			<div class="box" *ngIf="key>=(page-1)*cnt && key<=page*cnt-1 ">
 				Sl : {{ key+1 }} <br />
 				Name : {{ user['name'] }}<br />
@@ -16,6 +16,6 @@
 				Email Id : {{ user['email']}}<br /><br />
 				<a routerLink="/users/{{ user['id']}}/posts">See Post</a> 
 			</div>
-		</div>
+		</ng-container >
 	</div>
 </div>
