@@ -1,9 +1,11 @@
-img{
-    height: 45px;
-}
 .header{
-    background-color: #a9d5ed;
+    background-color: #FFF;
     width: 1340px;
     padding: 0.1rem;
     margin: 0 10px;
+}
+
+img{
+    height: 45px;
+    margin-left: 10px;
 }
