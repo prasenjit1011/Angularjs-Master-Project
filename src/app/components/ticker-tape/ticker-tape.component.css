@@ -3,6 +3,14 @@
     width: 1340px;
     padding: 0.1rem;
     margin: 0 10px;
+}
+.hide{
+    display: none;
+}
+.red{
+    color: #FFF;
+    background-color: #e88320;
+}
 table{
     margin: 0 10px;
     border: 1px solid;
