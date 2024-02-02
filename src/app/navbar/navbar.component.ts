@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
+  refreshTime = 60;
+  ngOnInit(){
+    setInterval(() => {
+      this.refreshTime ? this.refreshTime-- : this.refreshTime = 60;
+    }, 1000);
+  }
 }

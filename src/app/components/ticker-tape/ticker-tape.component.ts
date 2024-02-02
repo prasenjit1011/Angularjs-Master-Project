@@ -20,8 +20,9 @@ export class TickerTapeComponent {
   }
 
   ngOnInit(){
-      //setInterval(() => this.apidata(), 300000);
+      setInterval(() => this.apidata(), 1*60*1000);
   }
+
 
   apidata(){
     let apiUrl = this.sandboxHost+'/stock/list';
@@ -37,8 +38,8 @@ export class TickerTapeComponent {
   dayStatus() {
     console.log('-----dayStatus-----------');
     
-    //this.profit   = 0;
-    //this.cmprice  = 0;
+    this.profit   = 0;
+    this.cmprice  = 0;
 
     this.ltpdata.map((val,key)=>{
       console.log(this.sidData[val['sid']]['cqty']*val['dyChange']*val['c']*0.01);

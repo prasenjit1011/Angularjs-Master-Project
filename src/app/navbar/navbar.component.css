@@ -8,4 +8,10 @@
 img{
     height: 45px;
     margin-left: 10px;
+    /*float: left;*/
+}
+
+.refresh{
+    /*float: left;*/
+    padding: 1px 15px;
 }
