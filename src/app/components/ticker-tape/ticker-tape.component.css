@@ -7,6 +7,10 @@
 .hide{
     display: none;
 }
+.blue{
+    color: #000;
+    background-color: #73b564;
+}
 .red{
     color: #FFF;
     background-color: #e88320;
@@ -20,6 +24,9 @@ th, td{
     width: 150px;
     text-align: center;
     padding: 10px 5px;
+}
+th{
+    font-weight:400;
 }
 .amt{
     text-align: right;

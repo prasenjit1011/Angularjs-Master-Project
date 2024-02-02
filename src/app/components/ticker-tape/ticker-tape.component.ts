@@ -9,31 +9,35 @@ import { HttpClient } from '@angular/common/http';
 export class TickerTapeComponent {
   
   profit  = 0;
+  cmprice = 0;
   ltpdata = undefined;
   sidData = undefined;
   apiHost = 'http://localhost:3000';
   sandboxHost = 'https://ynhsgq-3000.csb.app'
 
   constructor(private http: HttpClient){
-    let apiUrl = this.sandboxHost+'/stock/list';
+    this.apidata();
+  }
 
+  apidata(){
+    let apiUrl = this.sandboxHost+'/stock/list';
     this.http
         .get(apiUrl)
         .subscribe(data=>(
           this.sidData  = data['sidData'],
           this.ltpdata  = data['apiData'],
-          this.mydata()
+          this.dayStatus()
         ));
   }
 
-  mydata() {
-
-    console.log('-----here-----------');
+  dayStatus() {
+    console.log('-----dayStatus-----------');
+    
     this.ltpdata.map((val,key)=>{
-      this.profit += this.sidData[val['sid']]['cqty']*val['dyChange']*val['c']*0.01;
+      console.log(this.sidData[val['sid']]['cqty']*val['dyChange']*val['c']*0.01);
+      this.profit   += this.sidData[val['sid']]['cqty']*val['dyChange']*val['c']*0.01;
+      this.cmprice  += this.sidData[val['sid']]['cqty']*val['price'];
     });
-     
-
   }
 
 }
