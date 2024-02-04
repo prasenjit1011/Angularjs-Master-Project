@@ -13,7 +13,7 @@ export class TickerTapeComponent {
   ltpdata = undefined;
   sidData = undefined;
   apiHost = 'http://localhost:3000';
-  sandboxHost = 'https://ynhsgq-3000.csb.app'
+  sandboxHost = 'https://jwtlw2-3000.csb.app'
 
   constructor(private http: HttpClient){
     this.apidata();
