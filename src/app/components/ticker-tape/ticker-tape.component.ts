@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+//let dateFormat = require('dateformat');
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-ticker-tape',
@@ -7,20 +10,27 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './ticker-tape.component.css'
 })
 export class TickerTapeComponent {
-  
+
   profit  = 0;
   cmprice = 0;
   ltpdata = undefined;
   sidData = undefined;
   apiHost = 'http://localhost:3000';
-  sandboxHost = 'https://jwtlw2-3000.csb.app'
+  sandboxHost = 'https://3dxngs-3000.csb.app'
+  apiInterval = 1*60*1000;
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, public datepipe: DatePipe){
     this.apidata();
   }
 
   ngOnInit(){
-      setInterval(() => this.apidata(), 1*60*1000);
+    let currentTime = parseInt(this.datepipe.transform((new Date), 'H'));
+    if(currentTime >= 9 && currentTime < 16 ){
+      setInterval(() => this.apidata(), this.apiInterval);
+    }
+    else{
+      this.apidata();
+    }
   }
 
 
@@ -42,7 +52,7 @@ export class TickerTapeComponent {
     this.cmprice  = 0;
 
     this.ltpdata.map((val,key)=>{
-      console.log(this.sidData[val['sid']]['cqty']*val['dyChange']*val['c']*0.01);
+      //console.log(this.sidData[val['sid']]['cqty']*val['dyChange']*val['c']*0.01);
       this.profit   += this.sidData[val['sid']]['cqty']*val['dyChange']*val['c']*0.01;
       this.cmprice  += this.sidData[val['sid']]['cqty']*val['price'];
     });
