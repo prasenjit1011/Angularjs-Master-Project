@@ -16,7 +16,7 @@ export class TickerTapeComponent {
   ltpdata = undefined;
   sidData = undefined;
   apiHost = 'http://localhost:3000';
-  sandboxHost = 'https://3dxngs-3000.csb.app'
+  sandboxHost = 'https://35v63r-3000.csb.app'
   apiInterval = 1*60*1000;
 
   constructor(private http: HttpClient, public datepipe: DatePipe){
