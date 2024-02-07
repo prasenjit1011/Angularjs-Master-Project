@@ -15,8 +15,10 @@ export class TickerTapeComponent {
   cmprice = 0;
   ltpdata = undefined;
   sidData = undefined;
-  apiHost = 'http://localhost:3000';
-  sandboxHost = 'https://35v63r-3000.csb.app'
+  
+  server  = true;
+  apiHost = this.server ? 'http://localhost:3000' : 'https://35v63r-3000.csb.app';
+
   apiInterval = 1*60*1000;
 
   constructor(private http: HttpClient, public datepipe: DatePipe){
@@ -35,7 +37,7 @@ export class TickerTapeComponent {
 
 
   apidata(){
-    let apiUrl = this.sandboxHost+'/stock/list';
+    let apiUrl = this.apiHost+'/stock/list';
     this.http
         .get(apiUrl)
         .subscribe(data=>(
