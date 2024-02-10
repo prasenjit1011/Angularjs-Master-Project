@@ -1,10 +1,14 @@
 .header{
     background-color: #FFF;
-    width: 1340px;
+    width: 1337px;
     padding: 0.2rem;
     margin: 0 10px;
     border-bottom: 0px solid #000;
     height: 70px;;
+}
+
+.headerSection{
+    /*background-color: #fdb813;*/
 }
 
 img{

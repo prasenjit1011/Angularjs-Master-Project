@@ -16,7 +16,7 @@ export class TickerTapeComponent implements OnInit {
   ltpdata = undefined;
   sidData = undefined;
   
-  server  = true;
+  server  = false;
   apiHost = this.server ? 'http://localhost:3000' : 'https://35v63r-3000.csb.app';
 
   apiInterval = 1*60*1000;
