@@ -1,0 +1,33 @@
+.content{
+    background-color: #FFF;
+    width: 1340px;
+    padding: 0.1rem;
+    margin: 0 10px;
+}
+.hide{
+    display: none;
+}
+.blue{
+    color: #000;
+    background-color: #73b564;
+}
+.red{
+    color: #FFF;
+    background-color: #e88320;
+}
+table{
+    margin: 0 10px;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+th, td{
+    width: 150px;
+    text-align: center;
+    padding: 10px 5px;
+}
+th{
+    font-weight:400;
+}
+.amt{
+    text-align: right;
+}

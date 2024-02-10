@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 //let dateFormat = require('dateformat');
 import { DatePipe } from '@angular/common';
@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './ticker-tape.component.html',
   styleUrl: './ticker-tape.component.css'
 })
-export class TickerTapeComponent {
+export class TickerTapeComponent implements OnInit {
 
   profit  = 0;
   cmprice = 0;
