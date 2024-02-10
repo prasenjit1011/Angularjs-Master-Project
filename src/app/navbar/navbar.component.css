@@ -1,5 +1,5 @@
 .header{
-    background-color: #FFF;
+    background-color: #0FF;
     width: 1340px;
     padding: 0.1rem;
     margin: 0 10px;
@@ -11,7 +11,17 @@ img{
     /*float: left;*/
 }
 
+.left{
+    float: left;
+}
+
 .refresh{
     /*float: left;*/
     padding: 1px 15px;
 }
+
+.dateTime{
+    float: right;
+    padding: 28px 10px 0px 0px;
+}
+
