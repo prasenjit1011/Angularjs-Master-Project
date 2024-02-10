@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit  {
       ajax:
       {
         url: this.apiHost+'/stock/list',
-        dataSrc: 'data'
+        dataSrc: 'apiData'
       },
       rowCallback: (row: Node, data: any[] | Object, index: number) => {
         if(data['change'] > 5){

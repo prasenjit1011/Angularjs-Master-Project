@@ -1,8 +1,10 @@
 .header{
-    background-color: #0FF;
+    background-color: #FFF;
     width: 1340px;
-    padding: 0.1rem;
+    padding: 0.2rem;
     margin: 0 10px;
+    border-bottom: 0px solid #000;
+    height: 70px;;
 }
 
 img{
@@ -25,3 +27,13 @@ img{
     padding: 28px 10px 0px 0px;
 }
 
+.padding15{
+    padding-left: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.padding25{
+    padding-left: 25px;
+}

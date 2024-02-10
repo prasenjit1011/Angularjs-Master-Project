@@ -8,19 +8,23 @@ import { DatePipe } from '@angular/common';
 })
 export class NavbarComponent {
 
-  refreshTime = 60;
+  refreshTime = undefined;
   dateTime    = undefined;
   constructor(public datepipe: DatePipe){
     
   }
 
   ngOnInit(){
-    this.dateTime = this.datepipe.transform((new Date), 'MMM d, y, h:mm:ss a');
-
-
-
     setInterval(() => {
-      this.refreshTime ? this.refreshTime-- : this.refreshTime = 60;
+      this.dateTime = this.datepipe.transform((new Date), 'MMM d, y, h:mm:ss a');
     }, 1000);
+    
+    let day = this.datepipe.transform((new Date), 'EEEE');
+    if(day != 'Sunday' && day != 'Saturday'){
+      setInterval(() => {
+        this.refreshTime ? this.refreshTime-- : this.refreshTime = 60;
+      }, 1000);
+    }
+    
   }
 }

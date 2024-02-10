@@ -1,8 +1,10 @@
 <div class="header">
+
         <a routerLink="/" style="cursor: pointer;"><img src="./assets/bse.png" /></a>
-        <span class="refresh">Refresh {{ refreshTime}}</span>    
+        
     
         <span class="dateTime">{{ dateTime }}</span>
-        <a class="dateTime" routerLink="/" style="cursor: pointer;">Dashboard</a>
+        <a routerLink="/" class="padding15 padding25">Home {{ refreshTime}}</a> &nbsp;
+        <a routerLink="/dashboard" class="padding15">Dashboard</a>
     
 </div>
