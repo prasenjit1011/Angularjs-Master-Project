@@ -10,8 +10,8 @@ import { Route, RouterModule } from '@angular/router';
 })
 export class DashboardComponent implements OnInit  {
 
-  server  = true;
-  apiHost = this.server ? 'http://localhost:3000' : 'https://35v63r-3000.csb.app';
+  server  = false;
+  apiHost = this.server ? 'http://localhost:3000' : 'https://ynhsgq-3000.csb.app';
 
   constructor(private http: HttpClient, public datepipe: DatePipe){
     
