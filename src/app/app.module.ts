@@ -14,7 +14,7 @@ import { StockDetailsComponent } from './components/stock-details/stock-details.
 const appRoute = [
   {path : '', component:TickerTapeComponent},
   {path : 'dashboard', component:DashboardComponent},
-  {path : 'details', component:StockDetailsComponent}
+  {path : 'details/:sid', component:StockDetailsComponent}
 ];
 
 @NgModule({

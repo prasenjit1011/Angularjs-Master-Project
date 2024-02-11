@@ -58,6 +58,7 @@ export class TickerTapeComponent implements OnInit {
 
 
   apidata(){
+    
     if(!this.apiStatus)return false;
 
     let apiUrl = this.apiHost+'/stock/list';

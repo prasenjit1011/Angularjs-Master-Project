@@ -61,17 +61,6 @@
     color: var(--gray-700);
   }
 
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
   .angular-logo {
     max-width: 9.2rem;
   }
@@ -175,13 +164,45 @@
       margin-block: 1.5rem;
     }
   }
+
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem;
+    box-sizing: inherit;
+    position: relative;
+
+    background-color: aliceblue;
+    min-height: 100px;
+    border: 1px solid;
+    flex-direction: column;
+
+  }
+
+
+  .mainBodyContent{
+    /*border: 1px solid ;
+    /*margin: 30px;
+    padding: 20px;;*/
+  }
 </style>
 
 <main class="main">
-    <div>
+  
+    <div class="headerContent">
       <app-navbar></app-navbar>
+    </div>
+    <!--
+      
+    -->
+    <div class="mainBodyContent">
       <router-outlet></router-outlet>
     </div>
+
+
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

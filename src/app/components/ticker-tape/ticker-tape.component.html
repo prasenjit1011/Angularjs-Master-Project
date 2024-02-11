@@ -21,13 +21,19 @@
         </thead>
         <tbody>
             <tr class="{{ !ltpdata ? '' : 'hide'}}" >
-                <th colspan="9">Loading ....</th>
+                <th colspan="11">Loading ....</th>
             </tr>
             <tr class="box" *ngFor="let val of ltpdata" title="{{ sidData[val['sid']]['share_name'].substr(0,120) }}">
                 <td>
+                    <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;">
                     {{ sidData[val['sid']]['share_name'].substr(0,12) }}
+                    </a>
                 </td>
-                <td>{{ val['sid']}}</td>
+                <td>
+                    <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;">
+                        {{ val['sid'] }}
+                    </a>
+                </td>
                 <td class="amt">
                     {{ sidData[val['sid']]['cqty'] }}
                 </td>
