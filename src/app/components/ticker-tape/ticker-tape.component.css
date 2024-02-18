@@ -15,6 +15,20 @@
     color: #FFF;
     background-color: #e88320;
 }
+
+.tbl{
+    width: 100%; 
+    border-collapse:collapse;
+}
+
+.tblBorder{
+    border: 1px solid;
+}
+
+.tbl th{
+    background-color: #3cddc7;
+}
+
 table{
     /*margin: 0 10px;*/
     border: 0px solid;

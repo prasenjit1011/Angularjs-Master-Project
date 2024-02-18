@@ -1,0 +1,20 @@
+<div class="mainContent">
+    <h5>Today's Status : </h5>
+    <div class="scrollmenu">
+        <table border="1">
+            <tr>
+                <td *ngFor="let val of dailyStatus">
+                    {{ datepipe.transform(val['created_at'], 'd/MM') }}
+                </td>
+            </tr>
+            <tr>
+                <td *ngFor="let val of dailyStatus">
+                    {{ val['day_status'] | number:'1.0-0'  }}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+

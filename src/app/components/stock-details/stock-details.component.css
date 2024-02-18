@@ -1,0 +1,29 @@
+.mainContent{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tbl{
+    width: 100%; 
+    border-collapse:collapse;
+}
+
+.tblBorder{
+    border: 1px solid;
+}
+
+.tbl th{
+    background-color: #3cddc7;
+}
+.tbl td{
+    text-align: center;
+}
+
+.price{
+    text-align: right !important;
+    padding-right: 5px;
+}
+
+.dtd{
+    padding-left: 5px;
+}

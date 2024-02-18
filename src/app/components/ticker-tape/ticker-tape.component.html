@@ -1,5 +1,5 @@
 <div class="content">
-    <table border="1">
+    <table class="tbl" border="1">
         <thead>
             <th>Name</th>
             <th>Sid</th>
@@ -35,7 +35,7 @@
                     </a>
                 </td>
                 <td class="amt">
-                    {{ sidData[val['sid']]['cqty'] }}
+                    {{ sidData[val['sid']]['qty'] }}
                 </td>
                 <td class="amt">
                     {{ sidData[val['sid']]['cqty']*val['dyChange']*val['c']*0.01 | number:'1.0-0' }}

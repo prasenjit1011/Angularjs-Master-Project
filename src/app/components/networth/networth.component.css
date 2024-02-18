@@ -1,0 +1,36 @@
+.mainContent{
+    width: 1332px; 
+    height: 800px;
+}
+.scroll
+{
+    background-color:#00FFFF;
+    width:70%;
+    height:350px;
+    FLOAT: left;
+    margin-left: 5%;
+    padding: 1%;
+    overflow:scroll;
+}
+
+.scrollmenu {
+    background-color: #b9dde1;
+    overflow: auto;
+    height: 90px;
+    white-space: nowrap;
+}
+
+.scrollmenu table{
+    width: 8000px;
+    border-collapse: collapse;
+    border: 1px solid;
+}
+
+.scrollmenu table td{
+    text-align: right;
+    padding: 5px 8px 5px 15px;
+}
+
+.mainContent h5{
+    padding-left: 20px;
+}

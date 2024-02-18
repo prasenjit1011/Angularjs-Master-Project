@@ -1,5 +1,259 @@
+<table class="mainContent" border="1">
+    <tr>
+        <td colspan="2" style="width: 50%;">
+            Share Name : {{ shareDetails.share_name}}
+        </td>
+        <td rowspan="2" style="width: 25%;">
+            <table>
+                <tr>
+                    <td>CurQty</td>
+                    <td></td>
+                <tr>
+                    <td>Dividend</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>LTP</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>CurPurPrice</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>CurInvestment</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HoldingSharePrice</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Profit</td>
+                    <td></td>
+                </tr>
+            </table>
+        </td>
+        <td rowspan="2">
+            <table>
+                <tr>
+                    <td>Low</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>High</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>P.Qty</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>S.Qty</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>P.Cost</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>S.Price</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>P.Total</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>S.Total</td>
+                    <td></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 25%;">
+            <table>
+                <tr>
+                    <td>Algo Status(1/0)</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td>B.Price</td>
+                    <td>123</td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 25%;">
+            <select></select>
+            <hr />
+        </td>
+    </tr>
+</table>
+<br />
 
-<h1></h1>
-<p>stock-details works! </p>
-<p>Stock Name : {{ sid }}</p>
+<table class="tbl" border="1">
+    <tr>
+        <td>dyCh</td>
+        <td>wkCh</td>
+        <td>mnCh</td>
+        <td>1mLow</td>
+        <td>3mLow</td>
+        <td>6mLow</td>
+        <td>1yLow</td>
+        <td>maxLow</td>
+        <td>1mHigh</td>
+        <td>3mHigh</td>
+        <td>6mHigh</td>
+        <td>1yHigh</td>
+        <td>maxHigh</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+    </tr>
+</table>
+<br />
+<table class="tbl" border="1">
+    <tr>
+        <td>QIB</td>
+        <td>HNI</td>
+        <td>RIL</td>
+        <td>Total</td>
+        <td>L.Open</td>
+        <td>L.Close</td>
+        <td>L.Perf.</td>
+        <td>C.Gain</td>
+        <td>Performance</td>
+        <td>Issue</td>
+        <td>Price</td>
+        <td>L.Open</td>
+        <td>L.Close</td>
+        <td>C.Price</td>
+        <td>Days</td>
+        <td>IPO Date</td>
+    </tr>
+
+    <tr>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+        <td>11</td>
+    </tr>
+</table>
+
+<br />
+
+<table class="tbl" border="1">
+    <tr>
+        <th>SL.</th>
+        <th>Share Name</th>
+        <th>Order Ref.</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>LTP</th>
+        <th>Cost</th>
+        <th>Qty</th>
+        <th>Total Profit</th>
+        <th>Buy</th>
+        <th>Sell</th>
+        <th>Acc</th>
+    </tr>
+    <tr *ngFor="let val of transaction">
+        <td></td>
+        <td>{{ val['sid'] }}</td>
+        <td>{{ val['order_ref'] }}</td>
+        <td>{{ val['created_at'] | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ val['type'] == 1? 'Buy':'Sell' }}</td>
+        <td class="price">{{ shareDetails['ltp'] | number:'1.0-0' }}</td>
+        <td class="price">{{ val['cost'] | number:'1.0-0' }}</td>
+        <td class="price">{{ val['qty'] }}</td>
+        <td></td>
+        <td class="price">{{ val['type'] == 1? (val['trade_value'] | number:'1.0-0') :'' }}</td>
+        <td class="price">{{ val['type'] == 2? (val['trade_value'] | number:'1.0-0') :'' }}</td>
+        <td>{{ val['account'].substr(0,1) }}</td>        
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="price">{{ holdingQty }}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<br />
+
+<table class="tbl tblBorder" border="0">
+    <tr>
+        <td style="width: 45%; vertical-align: baseline; padding: 0px 10px 0 0;">
+            <table class="tbl" border="1">
+                <tr>
+                    <th>Sl.</th>
+                    <th>Date</th>
+                    <th>Day</th>
+                    <th>Price</th>
+                    <th>Changes</th>
+                    <th>Status</th>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 25%; padding: 0px 10px;">
+            <table class="tbl" border="1">
+                <tr><th>Weekly Data</th><th>Price</th></tr>
+                <tr *ngFor="let val of twoWeekData">
+                    <td class="dtd">{{ val[0]*1000 | date: 'dd/MM/yyyy' }}</td>
+                    <td class="price">{{ val[1] | number:'1.0-0' }}</td>
+                </tr>
+            </table>
+            <br />
+            <table class="tbl" border="1">
+                <tr><th>Historical Data</th><th>Price</th></tr>
+                <tr *ngFor="let val of historyData">
+                    <td class="dtd">{{ val[0]*1000 | date: 'dd/MM/yyyy' }}</td>
+                    <td class="price">{{ val[1] | number:'1.0-0' }}</td>
+                </tr>
+            </table>
+            <br />
+            <table class="tbl" border="1">
+                <tr><th>Yearly Data</th><th>Price</th></tr>
+                <tr *ngFor="let val of oneYear">
+                    <td class="dtd">{{ val[0]*1000 | date: 'dd/MM/yyyy' }}</td>
+                    <td class="price">{{ val[1] | number:'1.0-0' }}</td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 30%; vertical-align: baseline; padding: 0px 10px;">UPDATE demat SET algo_status = 1 WHERE id IN ( SELECT DISTINCT d.id FROM `stock_pricehistory` sph LEFT JOIN demat d ON d.sid = sph.sid WHERE ltp < sph.min_price * 1.05 AND sph.year < 2023 AND sph.year > 2019 AND ltp > 100 and ltp < 200 )</td>
+    </tr>
+</table>
 
