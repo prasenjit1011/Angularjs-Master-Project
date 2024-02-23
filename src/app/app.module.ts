@@ -11,12 +11,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StockDetailsComponent } from './components/stock-details/stock-details.component';
 import { NetworthComponent } from './components/networth/networth.component';
+import { ActivityComponent } from './components/activity/activity.component';
 
 const appRoute = [
-  {path : '', component:TickerTapeComponent},
-  {path : 'dashboard', component:DashboardComponent},
-  {path : 'details/:sid', component:StockDetailsComponent},
-  {path : 'networth', component:NetworthComponent},
+  {path : '', component: TickerTapeComponent},
+  {path : 'dashboard', component: DashboardComponent},
+  {path : 'details/:sid', component: StockDetailsComponent},
+  {path : 'networth', component: NetworthComponent},
+  {path : 'activity', component: ActivityComponent},
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoute = [
     NavbarComponent,
     DashboardComponent,
     StockDetailsComponent,
-    NetworthComponent
+    NetworthComponent,
+    ActivityComponent
   ],
   imports: [
     BrowserModule,

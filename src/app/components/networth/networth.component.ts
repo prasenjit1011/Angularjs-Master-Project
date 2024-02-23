@@ -13,7 +13,7 @@ export class NetworthComponent {
   
   dailyStatus = undefined;
   apiStatus   = true;
-  server      = true;
+  server      = false;
   apiHost     = this.server ? 'http://localhost:3000' : 'https://ynhsgq-3000.csb.app';
 
   constructor(private http: HttpClient, public datepipe: DatePipe){
@@ -34,6 +34,7 @@ export class NetworthComponent {
         ));
   }
 
+  
   private handleError(error:HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.

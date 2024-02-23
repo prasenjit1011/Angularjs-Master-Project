@@ -12,13 +12,14 @@ import { DatePipe } from '@angular/common';
 
 export class StockDetailsComponent {
   sid = undefined;
+  shareName     = undefined;
   shareDetails  = undefined;
   transaction   = undefined;
-  twoWeekData   = undefined;
+  weeklyData    = undefined;
   oneYear       = undefined;
   historyData   = undefined;
   holdingQty    = 0;
-  server        = true;
+  server        = false;
   apiHost       = this.server ? 'http://localhost:3000' : 'https://ynhsgq-3000.csb.app';
 
   constructor(private route:ActivatedRoute, private http: HttpClient, public datepipe: DatePipe){
@@ -38,8 +39,9 @@ export class StockDetailsComponent {
         )
         .subscribe(data=>(
           this.shareDetails = data['shareDetails'],
+          this.shareName    = data['shareDetails']['share_name'],
           this.transaction  = data['transactionDetails'],
-          this.twoWeekData  = data['twoWeekData'].reverse(),
+          this.weeklyData   = data['weeklyData'].reverse(),
           this.oneYear      = data['oneYearData'].reverse(),
           this.historyData  = data['historyData'].reverse(),
           this.holdingData()
@@ -55,9 +57,11 @@ export class StockDetailsComponent {
       else if(val['type'] == 2){
         this.holdingQty -= val['qty'];;
       }
-      
+    
     });
   }
+
+
 
   private handleError(error:HttpErrorResponse) {
     if (error.status === 0) {

@@ -4,7 +4,7 @@
 }
 .scroll
 {
-    background-color:#00FFFF;
+    background-color:#05fdfd;
     width:70%;
     height:350px;
     FLOAT: left;
@@ -14,7 +14,7 @@
 }
 
 .scrollmenu {
-    background-color: #b9dde1;
+    background-color: #05fdfd;
     overflow: auto;
     height: 90px;
     white-space: nowrap;
