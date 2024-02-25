@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { catchError, retry } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'app-networth',
@@ -13,9 +14,7 @@ export class NetworthComponent {
   
   dailyStatus = undefined;
   apiStatus   = true;
-  server      = false;
-  apiHost     = this.server ? 'http://localhost:3000' : 'https://ynhsgq-3000.csb.app';
-
+  apiHost = environment.apiHost;
   constructor(private http: HttpClient, public datepipe: DatePipe){
     this.balancesheet();
   }

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, retry, throwError } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'app-stock-details',
@@ -19,8 +20,7 @@ export class StockDetailsComponent {
   oneYear       = undefined;
   historyData   = undefined;
   holdingQty    = 0;
-  server        = false;
-  apiHost       = this.server ? 'http://localhost:3000' : 'https://ynhsgq-3000.csb.app';
+  apiHost = environment.apiHost;
 
   constructor(private route:ActivatedRoute, private http: HttpClient, public datepipe: DatePipe){
     this.apidata();

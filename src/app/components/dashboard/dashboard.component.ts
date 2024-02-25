@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
+import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,9 +11,7 @@ import { Route, RouterModule } from '@angular/router';
 })
 export class DashboardComponent implements OnInit  {
 
-  server  = false;
-  apiHost = this.server ? 'http://localhost:3000' : 'https://ynhsgq-3000.csb.app';
-
+  apiHost = environment.apiHost;
   constructor(private http: HttpClient, public datepipe: DatePipe){
     
   }

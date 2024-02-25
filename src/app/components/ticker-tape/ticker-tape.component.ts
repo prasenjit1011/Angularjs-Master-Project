@@ -4,6 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { catchError, retry } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { environment } from './../../../environments/environment';
 
 
 @Component({
@@ -17,9 +18,7 @@ export class TickerTapeComponent implements OnInit {
   cmprice = 0;
   ltpdata = undefined;
   sidData = undefined;
-  
-  server  = false;
-  apiHost = this.server ? 'http://localhost:3000' : 'https://ynhsgq-3000.csb.app';
+  apiHost = environment.apiHost;
 
   apiInterval = 1*60*1000;
   apiStatus = true;
