@@ -4,6 +4,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { environment } from './../../../environments/environment';
+import { UploadService } from './../../upload.service';
 
 @Component({
   selector: 'app-networth',
@@ -15,9 +16,26 @@ export class NetworthComponent {
   dailyStatus = undefined;
   apiStatus   = true;
   apiHost = environment.apiHost;
-  constructor(private http: HttpClient, public datepipe: DatePipe){
+  file: File = null;
+  constructor(private uploadService: UploadService, private http: HttpClient, public datepipe: DatePipe){
     this.balancesheet();
   }
+
+  onFilechange(event: any) {
+    console.log(event.target.files[0])
+    this.file = event.target.files[0]
+  }
+  
+  upload() {
+    if (this.file) {
+      this.uploadService.uploadfile(this.file).subscribe(resp => {
+        alert("Uploaded")
+      })
+    } else {
+      alert("Please select a file first")
+    }
+  }
+
 
   balancesheet(){
 

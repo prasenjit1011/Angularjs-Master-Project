@@ -7,7 +7,7 @@
             <table>
                 <tr>
                     <td>CurQty</td>
-                    <td></td>
+                    <td class="price">{{ holdingQty }}</td>
                 <tr>
                     <td>Dividend</td>
                     <td></td>
@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>HoldingSharePrice</td>
-                    <td></td>
+                    <td class="price">{{ holdingCMP | number:'1.0-0' }}</td>
                 </tr>
                 <tr>
                     <td>Profit</td>
@@ -167,7 +167,7 @@
 
 <br />
 
-<table class="tbl" border="1">
+<table class="tbl transaction" border="1">
     <tr>
         <th>SL.</th>
         <th>Share Name</th>
@@ -177,24 +177,24 @@
         <th>LTP</th>
         <th>Cost</th>
         <th>Qty</th>
-        <th>Total Profit</th>
-        <th>Buy</th>
-        <th>Sell</th>
+        <th>Total Profit ({{ (holdingCMP+sellTotal-buyTotal) | number:'1.0-0'}})</th>
+        <th>Buy ({{ buyTotal | number:'1.0-0' }})</th>
+        <th>Sell ({{ sellTotal | number:'1.0-0' }})</th>
         <th>Acc</th>
     </tr>
     <tr *ngFor="let val of transaction">
         <td></td>
         <td>{{ val['sid'] }}</td>
-        <td>{{ val['order_ref'] }}</td>
-        <td>{{ val['created_at'] | date: 'dd/MM/yyyy' }}</td>
-        <td>{{ val['type'] == 1? 'Buy':'Sell' }}</td>
+        <td>{{ val['orderRef'] }}</td>
+        <td>{{ val['date'] | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ val['action'] }}</td>
         <td class="price">{{ shareDetails['ltp'] | number:'1.0-0' }}</td>
-        <td class="price">{{ val['cost'] | number:'1.0-0' }}</td>
+        <td class="price">{{ val['price'] | number:'1.0-0' }}</td>
         <td class="price">{{ val['qty'] }}</td>
         <td></td>
-        <td class="price">{{ val['type'] == 1? (val['trade_value'] | number:'1.0-0') :'' }}</td>
-        <td class="price">{{ val['type'] == 2? (val['trade_value'] | number:'1.0-0') :'' }}</td>
-        <td>{{ val['account'].substr(0,1) }}</td>        
+        <td class="price">{{ val['action'] == 'Buy' ? (val['tradeValue'] | number:'1.0-0') :'' }}</td>
+        <td class="price">{{ val['action'] == 'Sell' ? (val['tradeValue'] | number:'1.0-0') :'' }}</td>
+        <td>{{ val['DpidClientId'].substr(0,100) }}</td>        
     </tr>
     <tr>
         <td></td>
@@ -205,7 +205,7 @@
         <td></td>
         <td></td>
         <td class="price">{{ holdingQty }}</td>
-        <td></td>
+        <td class="price">{{ holdingCMP | number:'1.0-0' }}</td>
         <td></td>
         <td></td>
         <td></td>

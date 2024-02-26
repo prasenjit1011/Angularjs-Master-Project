@@ -12,6 +12,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StockDetailsComponent } from './components/stock-details/stock-details.component';
 import { NetworthComponent } from './components/networth/networth.component';
 import { ActivityComponent } from './components/activity/activity.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoute = [
   {path : '', component: TickerTapeComponent},
@@ -35,7 +36,9 @@ const appRoute = [
     BrowserModule,
     HttpClientModule,
     DataTablesModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

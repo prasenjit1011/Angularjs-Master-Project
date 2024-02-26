@@ -19,7 +19,10 @@ export class StockDetailsComponent {
   weeklyData    = undefined;
   oneYear       = undefined;
   historyData   = undefined;
+  buyTotal      = 0;
+  sellTotal     = 0;
   holdingQty    = 0;
+  holdingCMP    = 0;
   apiHost = environment.apiHost;
 
   constructor(private route:ActivatedRoute, private http: HttpClient, public datepipe: DatePipe){
@@ -50,15 +53,20 @@ export class StockDetailsComponent {
 
   private holdingData(){
     this.holdingQty = 0;
+    this.buyTotal   = 0;
+    this.sellTotal  = 0;
     this.transaction.forEach(val => {
-      if(val['type'] == 1){
+      if(val['action'] == 'Buy'){
         this.holdingQty += val['qty'];
+        this.buyTotal   += val['qty']*val['price'];
       }
-      else if(val['type'] == 2){
+      else if(val['action'] == 'Sell'){
         this.holdingQty -= val['qty'];;
+        this.sellTotal  += val['qty']*val['price'];
       }
-    
     });
+
+    this.holdingCMP = this.holdingQty*this.shareDetails['ltp']
   }
 
 

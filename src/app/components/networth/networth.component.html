@@ -14,6 +14,18 @@
             </tr>
         </table>
     </div>
+    <br />
+    <div>
+        <table border="1" style="margin: auto;">
+            <tr>
+                <td>
+                    <label for="formFile" class="form-label">Upload tradebook :</label><br />
+                    <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile"><br />
+                    <button (click)="this.upload()" type="button" class="btn btn-primary mt-3">Upload</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 
