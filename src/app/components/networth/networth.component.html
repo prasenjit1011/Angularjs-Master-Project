@@ -16,12 +16,38 @@
     </div>
     <br />
     <div>
-        <table border="1" style="margin: auto;">
+        <table border="1" class="tbl">
             <tr>
                 <td>
-                    <label for="formFile" class="form-label">Upload tradebook :</label><br />
-                    <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile"><br />
-                    <button (click)="this.upload()" type="button" class="btn btn-primary mt-3">Upload</button>
+                    <table border="1" class="tbl" style="margin: auto;">
+                        <tr>
+                            <td class="bold">Sl.</td>
+                            <td class="bold">Sid</td>
+                            <td class="bold">Stock</td>
+                            <td class="bold price">Qty</td>
+                            <td class="bold price">Price</td>
+                            <td class="bold price">Total ({{ cmpTotal | number: '1.0-0' }})</td>
+                        </tr>
+                        <tr *ngFor="let val of portfolio ">
+                            <td>{{ sl+1 }}</td>
+                            <td>{{val['sid']}}</td>
+                            <td>{{val['stock']}}</td>
+                            <td class="price">{{val['qty']}}</td>
+                            <td class="price">{{val['ltp'] | number: '1.0-0'}}</td>
+                            <td class="price">{{val['val'] | number: '1.0-0'}}</td>
+                        </tr>                        
+                    </table>
+                </td>
+                <td style="vertical-align:top;">
+                    <table border="1" style="border:0px; margin: auto;">
+                        <tr>
+                            <td>
+                                <label for="formFile" class="form-label">Upload tradebook :</label><br />
+                                <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile"><br />
+                                <button (click)="this.upload()" type="button" class="btn btn-primary mt-3">Upload</button>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>

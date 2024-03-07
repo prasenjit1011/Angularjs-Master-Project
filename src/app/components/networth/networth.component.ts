@@ -13,12 +13,16 @@ import { UploadService } from './../../upload.service';
 })
 export class NetworthComponent {
   
+  sl = 0;
+  cmpTotal    = 0;
+  portfolio   = undefined;
   dailyStatus = undefined;
   apiStatus   = true;
   apiHost = environment.apiHost;
   file: File = null;
   constructor(private uploadService: UploadService, private http: HttpClient, public datepipe: DatePipe){
     this.balancesheet();
+    this.myportfolio();
   }
 
   onFilechange(event: any) {
@@ -36,6 +40,21 @@ export class NetworthComponent {
     }
   }
 
+  myportfolio(){
+
+    let apiUrl = this.apiHost+'/tradedata';
+    this.http
+        .get(apiUrl)
+        .pipe(
+          retry(3),
+          catchError(this.handleError)
+        )
+        .subscribe(data=>(
+          this.cmpTotal  = data['cmp'],
+          this.portfolio = data['currentArr']
+        ));
+  }
+
 
   balancesheet(){
 
@@ -47,6 +66,8 @@ export class NetworthComponent {
           catchError(this.handleError)
         )
         .subscribe(data=>(
+          console.log(typeof data),
+          console.log(data),
           this.dailyStatus = data
         ));
   }
