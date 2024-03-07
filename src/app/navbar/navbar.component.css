@@ -1,7 +1,8 @@
 .headerSection{
     background-color: #FFF;
-    width: 1325px;
+    /*width: 1325px;*/
     padding: 0.2rem;
+    width: 100%;
     /*margin: 0 10px;
     border-bottom: 0px solid #000;*/
     height: 54px;;

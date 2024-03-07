@@ -22,6 +22,7 @@
     "datatables.net": "^1.13.8",
     "datatables.net-dt": "^1.13.8",
     "jquery": "^3.7.1",
+    "node-waves": "^0.7.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
