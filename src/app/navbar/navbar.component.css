@@ -39,3 +39,14 @@ img{
 .padding25{
     padding-left: 25px;
 }
+
+
+@media screen and (max-width: 600px) {
+    .headerSection{
+        height: auto;
+    }
+
+    .dateTime{
+        display: none;
+    }
+}

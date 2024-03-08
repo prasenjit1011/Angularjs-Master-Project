@@ -13,7 +13,7 @@ import { StockDetailsComponent } from './components/stock-details/stock-details.
 import { NetworthComponent } from './components/networth/networth.component';
 import { ActivityComponent } from './components/activity/activity.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import { DemoComponent } from './components/demo/demo.component';
+import { DemoComponent } from './components/demo/demo.component';
 
 const appRoute = [
   {path : '', component: TickerTapeComponent},
@@ -21,7 +21,7 @@ const appRoute = [
   {path : 'details/:sid', component: StockDetailsComponent},
   {path : 'networth', component: NetworthComponent},
   {path : 'activity', component: ActivityComponent},
-  //{path : 'demo', component: DemoComponent},
+  {path : 'demo', component: DemoComponent},
 ];
 
 @NgModule({
@@ -33,7 +33,7 @@ const appRoute = [
     StockDetailsComponent,
     NetworthComponent,
     ActivityComponent,
-    //DemoComponent
+    DemoComponent
   ],
   imports: [
     BrowserModule,
