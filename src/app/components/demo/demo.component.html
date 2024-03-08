@@ -36,7 +36,7 @@
           <td data-label="Qty" class="amt">
               {{ sidData[val['sid']]['qty'] }}
           </td>
-          <td data-label="D.Changes" class="amt">
+          <td data-label="D.Change" class="amt">
               {{ sidData[val['sid']]['cqty']*val['dyChange']*val['c']*0.01 | number:'1.0-0' }}
           </td>
           <td data-label="LTP" class="amt">
