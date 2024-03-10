@@ -3,19 +3,19 @@
     <div class="scrollmenu">
         <table border="1">
             <tr>
-                <td>Date</td>
+                <td>Date.</td>
                 <td *ngFor="let val of dailyStatus">
                     {{ datepipe.transform(val['createdAt'], 'd/MM') }}
                 </td>
             </tr>
             <tr>
-                <td>Gain</td>
+                <td>Gain.</td>
                 <td *ngFor="let val of dailyStatus">
                     {{ val['day_status'] | number:'1.0-0'  }}
                 </td>
             </tr>
             <tr>
-                <td>Portfolio</td>
+                <td>Portfolio.</td>
                 <td *ngFor="let val of dailyStatus">
                     {{ val['current_share_price'] | number:'1.0-0'  }}
                 </td>
