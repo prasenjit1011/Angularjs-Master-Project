@@ -9,8 +9,8 @@
                 </td>
             </tr>
             <tr>
-                <td>Gain.</td>
-                <td *ngFor="let val of dailyStatus">
+                <td>Gain</td>
+                <td *ngFor="let val of dailyStatus" class="{{ val['day_status'] < 0 ? 'red':'' }}">
                     {{ val['day_status'] | number:'1.0-0'  }}
                 </td>
             </tr>

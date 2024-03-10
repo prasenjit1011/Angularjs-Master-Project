@@ -1,7 +1,16 @@
 a{
-    color: #000;
+    color: #008;
     text-decoration: none;
     padding: 12px 0;
+}
+
+.tbl table tr td{
+    padding: 5px;
+}
+
+.red{
+    color: #FFF;
+    background-color: #e88320;
 }
 
 .mainContent{
