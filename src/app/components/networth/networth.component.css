@@ -1,3 +1,9 @@
+a{
+    color: #000;
+    text-decoration: none;
+    padding: 12px 0;
+}
+
 .mainContent{
     /* width: 1332px;  */
     height: auto;
@@ -16,7 +22,7 @@
 .scrollmenu {
     background-color: #05fdfd;
     overflow: auto;
-    height: 90px;
+    height: 140px;
     white-space: nowrap;
 }
 
@@ -46,4 +52,16 @@
 .price{
     text-align: right !important;
     padding-right: 5px;
+}
+
+
+.tradeBook{
+    vertical-align:top;
+}
+
+
+@media screen and (max-width: 600px) {
+    .tradeBook{
+        display: none;
+    }
 }
