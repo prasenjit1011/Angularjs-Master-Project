@@ -3,13 +3,21 @@
     <div class="scrollmenu">
         <table border="1">
             <tr>
+                <td>Date</td>
                 <td *ngFor="let val of dailyStatus">
-                    {{ datepipe.transform(val['created_at'], 'd/MM') }}
+                    {{ datepipe.transform(val['createdAt'], 'd/MM') }}
                 </td>
             </tr>
             <tr>
+                <td>Gain</td>
                 <td *ngFor="let val of dailyStatus">
                     {{ val['day_status'] | number:'1.0-0'  }}
+                </td>
+            </tr>
+            <tr>
+                <td>Portfolio</td>
+                <td *ngFor="let val of dailyStatus">
+                    {{ val['current_share_price'] | number:'1.0-0'  }}
                 </td>
             </tr>
         </table>
@@ -25,20 +33,30 @@
                             <td class="bold">Sid</td>
                             <td class="bold">Stock</td>
                             <td class="bold price">Qty</td>
+                            <td class="bold price">Changes</td>
                             <td class="bold price">Price</td>
                             <td class="bold price">Total ({{ cmpTotal | number: '1.0-0' }})</td>
                         </tr>
                         <tr *ngFor="let val of portfolio ">
                             <td>{{ sl+1 }}</td>
-                            <td>{{val['sid']}}</td>
-                            <td>{{val['stock']}}</td>
+                            <td>
+                                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;">
+                                    {{val['sid']}}
+                                </a>
+                            </td>
+                            <td>
+                                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;">
+                                    {{val['stock']}}
+                                </a>
+                            </td>
                             <td class="price">{{val['qty']}}</td>
+                            <td class="price">{{val['qty']*val['change'] | number: '1.0-0'}}</td>
                             <td class="price">{{val['ltp'] | number: '1.0-0'}}</td>
                             <td class="price">{{val['val'] | number: '1.0-0'}}</td>
                         </tr>                        
                     </table>
                 </td>
-                <td style="vertical-align:top;">
+                <td class="tradeBook">
                     <table border="1" style="border:0px; margin: auto;">
                         <tr>
                             <td>
