@@ -75,6 +75,21 @@ export class NetworthComponent {
             return -1;
           }
         }
+        else if(colName == 'change'){
+          if (a.change < b.change) {
+            return -1;
+          }
+        }
+        else if(colName == 'stockTotalChange'){
+          if (a.stockTotalChange < b.stockTotalChange) {
+            return -1;
+          }
+        }
+        else if(colName == 'dyChange'){
+          if (a.dyChange < b.dyChange) {
+            return -1;
+          }
+        }
         else if(colName == 'currentVal'){
           if (a.currentVal < b.currentVal) {
             return -1;
@@ -99,6 +114,22 @@ export class NetworthComponent {
         }
         else if(colName == 'ltp'){
           if (a.ltp > b.ltp) {
+            return -1;
+          }
+        }
+        
+        else if(colName == 'change'){
+          if (a.change > b.change) {
+            return -1;
+          }
+        }
+        else if(colName == 'stockTotalChange'){
+          if (a.stockTotalChange > b.stockTotalChange) {
+            return -1;
+          }
+        }
+        else if(colName == 'dyChange'){
+          if (a.dyChange > b.dyChange) {
             return -1;
           }
         }

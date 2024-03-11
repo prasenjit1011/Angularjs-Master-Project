@@ -31,3 +31,8 @@
 .dtd{
     padding-left: 5px;
 }
+
+.priceDetails{
+    width:-webkit-fill-available;
+    padding: 5px;
+}

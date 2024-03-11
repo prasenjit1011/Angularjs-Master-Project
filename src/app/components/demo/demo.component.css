@@ -7,7 +7,7 @@
 }
 .red{
   color: #FFF;
-  background-color: #e88320;
+  background-color: #e88320 !important;
 }
 
 
@@ -38,6 +38,10 @@ table td {
   font-weight: 400;
   padding: .625em;
   text-align: center;
+}
+
+table th{
+  background-color: #3cddc7;
 }
 
 @media screen and (max-width: 600px) {

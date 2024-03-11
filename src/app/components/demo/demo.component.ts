@@ -24,6 +24,11 @@ export class DemoComponent implements OnInit {
   apiInterval = 1*60*1000;
   apiStatus = true;
 
+  stockList   = undefined;
+  sortBy    = 'price';
+  sortType  = 2;
+
+
   constructor(private http: HttpClient, public datepipe: DatePipe){
     this.apidata();
   }
@@ -71,7 +76,8 @@ export class DemoComponent implements OnInit {
         .subscribe(data=>(
           this.sidData  = data['sidData'],
           this.ltpdata  = data['apiData'],
-          this.dayStatus()
+          this.dayStatus(),
+          this.sortData()
         ));
   }
 
@@ -87,5 +93,88 @@ export class DemoComponent implements OnInit {
       this.cmprice  += this.sidData[val['sid']]['cqty']*val['price'];
     });
   }
+
+
+
+
+  sortData(colName = 'sid'){
+
+    // this.sortBy   = colName;
+    this.sortType = this.sortType == 1 ? 2 : 1;
+
+    return this.ltpdata.sort((a, b) => {
+      if(this.sortType == 1){
+        if (a.dyChange < b.dyChange) {
+          return -1;
+        }
+      }
+      else{
+        if (a.dyChange > b.dyChange) {
+          return -1;
+        }
+      }
+
+
+      
+      // if(this.sortType == 1){
+      //   if(colName == 'sid'){
+      //     if (a.sid < b.sid) {
+      //       return -1;
+      //     }
+      //   }
+      //   else if(colName == 'stock'){
+      //     if (a.stock < b.stock) {
+      //       return -1;
+      //     }
+      //   }
+      //   else if(colName == 'qty'){
+      //     if (a.qty < b.qty) {
+      //       return -1;
+      //     }
+      //   }
+      //   else if(colName == 'ltp'){
+      //     if (a.ltp < b.ltp) {
+      //       return -1;
+      //     }
+      //   }
+      //   else if(colName == 'currentVal'){
+      //     if (a.currentVal < b.currentVal) {
+      //       return -1;
+      //     }
+      //   }
+      // }
+      // else{
+      //   if(colName == 'sid'){
+      //     if (a.sid > b.sid) {
+      //       return -1;
+      //     }
+      //   }
+      //   else if(colName == 'stock'){
+      //     if (a.stock > b.stock) {
+      //       return -1;
+      //     }
+      //   }
+      //   else if(colName == 'qty'){
+      //     if (a.qty > b.qty) {
+      //       return -1;
+      //     }
+      //   }
+      //   else if(colName == 'ltp'){
+      //     if (a.ltp > b.ltp) {
+      //       return -1;
+      //     }
+      //   }
+      //   else if(colName == 'currentVal'){
+      //     if (a.currentVal > b.currentVal) {
+      //       return -1;
+      //     }
+      //   }
+      // }
+
+    });
+  }
+
+
+
 
 }

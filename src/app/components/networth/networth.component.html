@@ -27,27 +27,35 @@
         <table border="1" class="tbl">
             <tr>
                 <td>
-                    <table border="1" class="tbl" style="margin: auto;">
-                        <tr>
-                            <td class="bold">Sl.</td>
-                            <td class="bold" 
-                                (click)="this.sortData('sid')" >Sid</td>
-
-                            <td class="bold" 
-                                (click)="this.sortData('stock')" >Stock {{ sortType }}</td>
-
-                            <td class="bold price" 
-                                (click)="this.sortData('qty')" >Qty</td>
-
-                            <td class="bold price" 
-                                (click)="this.sortData('change')" >Changes</td>
-
-                            <td class="bold price" 
-                                (click)="this.sortData('ltp')" >Price</td>
-
-                            <td class="bold price" 
-                                (click)="this.sortData('currentVal')" >Total ({{ cmpTotal | number: '1.0-0' }})</td>
-                        </tr>
+                    <table border="1" class="tbl tblPortfolio" style="margin: auto;">
+                        <thead>
+                            <tr>
+                                <th class="bold">Sl.</th>
+                                <th class="bold" 
+                                    (click)="this.sortData('sid')" >Sid</th>
+    
+                                <th class="bold" 
+                                    (click)="this.sortData('stock')" >Stock {{ sortType }}</th>
+    
+                                <th class="bold price" 
+                                    (click)="this.sortData('qty')" >Qty</th>
+    
+                                <th class="bold price" 
+                                    (click)="this.sortData('change')" >Changes</th>
+    
+                                <th  class="{{ todayChange < 0 ? 'bold price red':'bold price' }}"
+                                    (click)="this.sortData('stockTotalChange')" >T.Changes ({{todayChange}})</th>
+    
+                                <th class="bold price" 
+                                    (click)="this.sortData('dyChange')" >dyChange</th>
+    
+                                <th class="bold price" 
+                                    (click)="this.sortData('ltp')" >Price</th>
+    
+                                <th class="bold price" 
+                                    (click)="this.sortData('currentVal')" >Total ({{ cmpTotal | number: '1.0-0' }})</th>
+                            </tr>
+                        </thead>
                         <tr *ngFor="let val of portfolio; let sl=index;">
                             <td>{{ sl+1 }}</td>
                             <td>
@@ -61,7 +69,9 @@
                                 </a>
                             </td>
                             <td class="price">{{val['qty']}}</td>
-                            <td class="price">{{val['qty']*val['change'] | number: '1.0-0'}}</td>
+                            <td class="price">{{val['change'] | number: '1.0-0'}}</td>
+                            <td class="price">{{val['stockTotalChange'] | number: '1.0-0'}}</td>
+                            <td class="price">{{val['dyChange'] | number: '1.0-0'}}</td>
                             <td class="price">{{val['ltp'] | number: '1.0-0'}}</td>
                             <td class="price">{{val['currentVal'] | number: '1.0-0'}}</td>
                         </tr>                        

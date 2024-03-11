@@ -4,25 +4,25 @@
             Share Name ::: {{ shareName }}
         </td>
         <td rowspan="2" style="width: 25%;">
-            <table>
+            <table class="priceDetails">
                 <tr>
                     <td>CurQty</td>
                     <td class="price">{{ holdingQty }}</td>
                 <tr>
                     <td>Dividend</td>
-                    <td></td>
+                    <td class="price"></td>
                 </tr>
                 <tr>
                     <td>LTP</td>
-                    <td></td>
+                    <td class="price">{{ shareDetails['ltp'] | number:'1.0-0' }}</td>
                 </tr>
                 <tr>
                     <td>CurPurPrice</td>
-                    <td></td>
+                    <td class="price"></td>
                 </tr>
                 <tr>
                     <td>CurInvestment</td>
-                    <td></td>
+                    <td class="price"></td>
                 </tr>
                 <tr>
                     <td>HoldingSharePrice</td>
@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <td>Profit</td>
-                    <td></td>
+                    <td class="price"></td>
                 </tr>
             </table>
         </td>

@@ -8,10 +8,6 @@ a{
     padding: 5px;
 }
 
-.red{
-    color: #FFF;
-    background-color: #e88320;
-}
 
 .mainContent{
     /* width: 1332px;  */
@@ -55,6 +51,12 @@ a{
     border-collapse: collapse;
 }
 
+.tblPortfolio thead th{
+    background-color: cadetblue;
+    color: #FFF;
+    padding: 5px 8px 5px 15px;
+}
+
 .bold{
     font-weight: 400;
 }
@@ -71,6 +73,11 @@ a{
 
 .tradeBook{
     vertical-align:top;
+}
+
+.red{
+    color: #FFF;
+    background-color: #e88320!important;
 }
 
 
