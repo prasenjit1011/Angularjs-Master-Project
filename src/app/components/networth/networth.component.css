@@ -58,6 +58,11 @@ a{
 .bold{
     font-weight: 400;
 }
+
+.bold800{
+    font-weight: 1200;
+}
+
 .price{
     text-align: right !important;
     padding-right: 5px;

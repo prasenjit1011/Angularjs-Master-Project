@@ -14,12 +14,18 @@ import { UploadService } from './../../upload.service';
 export class NetworthComponent {
   
   sl = 0;
+  todayChange = 0;
   cmpTotal    = 0;
   portfolio   = undefined;
   dailyStatus = undefined;
+  stockList   = undefined;
   apiStatus   = true;
-  apiHost = environment.apiHost;
-  file: File = null;
+  apiHost     = environment.apiHost;
+  file: File  = null;
+
+  sortBy    = 'sid';
+  sortType  = 2;
+  
   constructor(private uploadService: UploadService, private http: HttpClient, public datepipe: DatePipe){
     this.balancesheet();
     this.myportfolio();
@@ -40,6 +46,72 @@ export class NetworthComponent {
     }
   }
 
+
+  sortData(colName = 'sid'){
+
+    this.sortBy   = colName;
+    this.sortType = this.sortType == 1 ? 2 : 1;
+
+    return this.stockList.sort((a, b) => {
+
+      if(this.sortType == 1){
+        if(colName == 'sid'){
+          if (a.sid < b.sid) {
+            return -1;
+          }
+        }
+        else if(colName == 'stock'){
+          if (a.stock < b.stock) {
+            return -1;
+          }
+        }
+        else if(colName == 'qty'){
+          if (a.qty < b.qty) {
+            return -1;
+          }
+        }
+        else if(colName == 'ltp'){
+          if (a.ltp < b.ltp) {
+            return -1;
+          }
+        }
+        else if(colName == 'currentVal'){
+          if (a.currentVal < b.currentVal) {
+            return -1;
+          }
+        }
+      }
+      else{
+        if(colName == 'sid'){
+          if (a.sid > b.sid) {
+            return -1;
+          }
+        }
+        else if(colName == 'stock'){
+          if (a.stock > b.stock) {
+            return -1;
+          }
+        }
+        else if(colName == 'qty'){
+          if (a.qty > b.qty) {
+            return -1;
+          }
+        }
+        else if(colName == 'ltp'){
+          if (a.ltp > b.ltp) {
+            return -1;
+          }
+        }
+        else if(colName == 'currentVal'){
+          if (a.currentVal > b.currentVal) {
+            return -1;
+          }
+        }
+      }
+
+    });
+  }
+
   myportfolio(){
 
     let apiUrl = this.apiHost+'/tradedata';
@@ -50,8 +122,10 @@ export class NetworthComponent {
           catchError(this.handleError)
         )
         .subscribe(data=>(
-          this.cmpTotal  = data['cmp'],
-          this.portfolio = data['currentArr']
+          this.todayChange  = data['todayChange'],
+          this.cmpTotal     = data['cmp'],
+          this.stockList    = data['currentArr'],
+          this.portfolio    = this.sortData('sid')
         ));
   }
 

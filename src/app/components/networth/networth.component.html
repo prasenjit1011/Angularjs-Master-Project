@@ -30,14 +30,25 @@
                     <table border="1" class="tbl" style="margin: auto;">
                         <tr>
                             <td class="bold">Sl.</td>
-                            <td class="bold">Sid</td>
-                            <td class="bold">Stock</td>
-                            <td class="bold price">Qty</td>
-                            <td class="bold price">Changes</td>
-                            <td class="bold price">Price</td>
-                            <td class="bold price">Total ({{ cmpTotal | number: '1.0-0' }})</td>
+                            <td class="bold" 
+                                (click)="this.sortData('sid')" >Sid</td>
+
+                            <td class="bold" 
+                                (click)="this.sortData('stock')" >Stock {{ sortType }}</td>
+
+                            <td class="bold price" 
+                                (click)="this.sortData('qty')" >Qty</td>
+
+                            <td class="bold price" 
+                                (click)="this.sortData('change')" >Changes</td>
+
+                            <td class="bold price" 
+                                (click)="this.sortData('ltp')" >Price</td>
+
+                            <td class="bold price" 
+                                (click)="this.sortData('currentVal')" >Total ({{ cmpTotal | number: '1.0-0' }})</td>
                         </tr>
-                        <tr *ngFor="let val of portfolio ">
+                        <tr *ngFor="let val of portfolio; let sl=index;">
                             <td>{{ sl+1 }}</td>
                             <td>
                                 <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;">
@@ -52,7 +63,7 @@
                             <td class="price">{{val['qty']}}</td>
                             <td class="price">{{val['qty']*val['change'] | number: '1.0-0'}}</td>
                             <td class="price">{{val['ltp'] | number: '1.0-0'}}</td>
-                            <td class="price">{{val['val'] | number: '1.0-0'}}</td>
+                            <td class="price">{{val['currentVal'] | number: '1.0-0'}}</td>
                         </tr>                        
                     </table>
                 </td>
