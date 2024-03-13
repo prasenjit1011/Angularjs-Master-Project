@@ -1,9 +1,18 @@
 <table class="mainContent" border="1">
     <tr>
         <td colspan="2" style="width: 50%;">
-            Share Name ::: {{ shareName }}
+            Share Name : {{ shareName }}
+            <div style="width: 100%;">
+                <div style="float: left;">
+                </div>
+                <div style="float: right;">
+                    <span *ngFor="let arr of stockUrlArr">
+                        <a target="_blank" href="{{arr['val']}}" style="margin: 4px; color:blue;">{{arr['key']}}</a>
+                    </span>
+                </div>
+            </div>
         </td>
-        <td rowspan="2" style="width: 25%;">
+        <td rowspan="3" style="width: 25%;">
             <table class="priceDetails">
                 <tr>
                     <td>CurQty</td>
@@ -20,21 +29,21 @@
                     <td>CurPurPrice</td>
                     <td class="price"></td>
                 </tr>
-                <tr>
-                    <td>CurInvestment</td>
-                    <td class="price"></td>
+                <tr class="{{ invStatus ? 'orangeBg':'skyBg' }}">
+                    <td>{{ invStatus ? 'CurInvestment':'Gain' }}</td>
+                    <td class="price">{{ (invStatus ? (this.buyTotal-this.sellTotal):(this.sellTotal-this.buyTotal)) | number:'1.0-0' }}</td>
                 </tr>
                 <tr>
                     <td>HoldingSharePrice</td>
                     <td class="price">{{ holdingCMP | number:'1.0-0' }}</td>
                 </tr>
-                <tr>
+                <tr class="{{ (holdingCMP-(buyTotal-sellTotal)) < 0 ? 'orangeBg':'skyBg' }}">
                     <td>Profit</td>
-                    <td class="price"></td>
+                    <td class="price">{{ (holdingCMP-(buyTotal-sellTotal)) | number:'1.0-0' }}</td>
                 </tr>
             </table>
         </td>
-        <td rowspan="2">
+        <td rowspan="3">
             <table>
                 <tr>
                     <td>Low</td>
@@ -71,6 +80,7 @@
             </table>
         </td>
     </tr>
+    
     <tr>
         <td style="width: 25%;">
             <table>
@@ -201,7 +211,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
+        <td>Holding</td>
         <td></td>
         <td></td>
         <td class="price">{{ holdingQty }}</td>

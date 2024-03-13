@@ -34,5 +34,20 @@
 
 .priceDetails{
     width:-webkit-fill-available;
-    padding: 5px;
+    /*padding: 5px;*/
+}
+
+.priceDetails th,td{
+    padding: 3px 5px;
+}
+
+.transaction{
+    padding: 6px;
+}
+
+.skyBg{
+    background-color: #3cddc7;
+}
+.orangeBg{
+    background-color: #fdb813;
 }

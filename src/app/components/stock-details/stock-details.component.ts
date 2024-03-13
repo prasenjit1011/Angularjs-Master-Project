@@ -21,17 +21,42 @@ export class StockDetailsComponent {
   historyData   = undefined;
   buyTotal      = 0;
   sellTotal     = 0;
+  invStatus     = true;
   holdingQty    = 0;
   holdingCMP    = 0;
-  apiHost = environment.apiHost;
+  apiHost       = environment.apiHost;
+  stockUrlArr   = [];
 
   constructor(private route:ActivatedRoute, private http: HttpClient, public datepipe: DatePipe){
     this.apidata();
+    ;
+  }
+
+  stockUrl(){
+
+    this.stockUrlArr.push({key:'nseUrl', val:"https://www.nseindia.com/get-quotes/equity?symbol="});//CAMPUS
+    this.stockUrlArr.push({key:'ipo', val:"https://www.google.com/search?q=ipo+"+this.shareName});;
+    this.stockUrlArr.push({key:'priceChk', val:"https://www.google.com/search?q=share+price+"+this.shareName});;
+    this.stockUrlArr.push({key:'trading', val:"https://www.google.com/search?q=share+price+ tradingview+"+this.shareName});;
+    
+    this.stockUrlArr.push({key:'ticker', val:"https://www.tickertape.in/stocks/"+this.sid+"?chartScope=1mo"});;
+    this.stockUrlArr.push({key:'moneyCtrl', val:"https://www.google.com/search?q=moneycontrol+"+this.shareName});;
+    this.stockUrlArr.push({key:'growUrl', val:"https://www.google.com/search?q=groww+"+this.shareName});;
+    this.stockUrlArr.push({key:'m4m', val:"https://www.google.com/search?q=moneyworks4me+"+this.shareName});;
+    this.stockUrlArr.push({key:'tapi', val:"https://quotes-api.tickertape.in/quotes?sids="+this.sid});;
+
+    
+    console.log(this.stockUrlArr);
+    
+
+
+
+
   }
 
   apidata(){
     this.sid = this.route.snapshot.params['sid'];
-    console.log('Sid : ', this.sid);
+    console.log('Sid :::: ', this.sid);
   
     let apiUrl = this.apiHost+'/stock/details/'+this.sid;
     this.http
@@ -47,7 +72,8 @@ export class StockDetailsComponent {
           this.weeklyData   = data['weeklyData'].reverse(),
           this.oneYear      = data['oneYearData'].reverse(),
           this.historyData  = data['historyData'].reverse(),
-          this.holdingData()
+          this.holdingData(),
+          this.stockUrl()
         ));
   }
 
@@ -67,6 +93,7 @@ export class StockDetailsComponent {
     });
 
     this.holdingCMP = this.holdingQty*this.shareDetails['ltp']
+    this.invStatus  = this.buyTotal-this.sellTotal > 0 ? true:false;
   }
 
 

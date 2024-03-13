@@ -104,13 +104,87 @@ export class DemoComponent implements OnInit {
 
     return this.ltpdata.sort((a, b) => {
       if(this.sortType == 1){
-        if (a.dyChange < b.dyChange) {
-          return -1;
+        if(colName == 'price'){
+          if (a.price < b.price) {
+            return -1;
+          }
+        }
+        else if(colName == 'dyChange'){
+          if (a.dyChange < b.dyChange) {
+            return -1;
+          }
+        }
+        else if(colName == 'wkChange'){
+          if (a.wkChange < b.wkChange) {
+            return -1;
+          }
+        }
+        else if(colName == 'mnChange'){
+          if (a.mnChange < b.mnChange) {
+            return -1;
+          }
+        }
+        else if(colName == 'low52w'){
+          if (a.low52w < b.low52w) {
+            return -1;
+          }
+        }
+        else if(colName == 'high52w'){
+          if (a.high52w < b.high52w) {
+            return -1;
+          }
+        }
+        else if(colName == 'vol'){
+          if (a.vol < b.vol) {
+            return -1;
+          }
+        }
+        else if(colName == 'sid'){
+          if (a.sid < b.sid) {
+            return -1;
+          }
         }
       }
       else{
-        if (a.dyChange > b.dyChange) {
-          return -1;
+        if(colName == 'price'){
+          if (a.price > b.price) {
+            return -1;
+          }
+        }
+        else if(colName == 'dyChange'){
+          if (a.dyChange > b.dyChange) {
+            return -1;
+          }
+        }
+        else if(colName == 'wkChange'){
+          if (a.wkChange > b.wkChange) {
+            return -1;
+          }
+        }
+        else if(colName == 'mnChange'){
+          if (a.mnChange > b.mnChange) {
+            return -1;
+          }
+        }
+        else if(colName == 'low52w'){
+          if (a.low52w > b.low52w) {
+            return -1;
+          }
+        }
+        else if(colName == 'high52w'){
+          if (a.high52w > b.high52w) {
+            return -1;
+          }
+        }
+        else if(colName == 'vol'){
+          if (a.vol > b.vol) {
+            return -1;
+          }
+        }
+        else if(colName == 'sid'){
+          if (a.sid > b.sid) {
+            return -1;
+          }
         }
       }
 

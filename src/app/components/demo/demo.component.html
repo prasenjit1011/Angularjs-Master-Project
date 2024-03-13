@@ -1,9 +1,9 @@
 <table>
     <thead>
         <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Sid</th>
-        <th scope="col" class="amt">
+        <th scope="col" (click)="this.sortData('sid')">Name</th>
+        <th scope="col" (click)="this.sortData('sid')">Sid</th>
+        <th scope="col" class="amt" (click)="this.sortData('qty')">
             Qty 
             ({{ cmprice | number:'1.0-0' }})
         </th>
@@ -11,13 +11,13 @@
             {{ profit < 0 ? 'Invest' : 'Profit' }}
             ({{ profit | number:'1.0-0' }})
         </th>
-        <th scope="col" class="amt" (click)="this.sortData('ltp')" >LTP {{ sortBy }}/{{ sortType }}</th>
+        <th scope="col" class="amt" (click)="this.sortData('price')" >LTP {{ sortBy }}/{{ sortType }}</th>
         <th scope="col" (click)="this.sortData('dyChange')">dyChange</th>
-        <th scope="col">wkChange</th>
-        <th scope="col">mnChange</th>
-        <th scope="col">low52w</th>
-        <th scope="col">high52w</th>
-        <th scope="col">vol</th>
+        <th scope="col" (click)="this.sortData('wkChange')">wkChange</th>
+        <th scope="col" (click)="this.sortData('mnChange')">mnChange</th>
+        <th scope="col" (click)="this.sortData('low52w')">low52w</th>
+        <th scope="col" (click)="this.sortData('high52w')">high52w</th>
+        <th scope="col" (click)="this.sortData('vol')">vol</th>
         </tr>
         <tr data-label="Loading" class="{{ !ltpdata ? '' : 'hide'}}" >
             <th colspan="11">Loading ....</th>
@@ -26,12 +26,12 @@
     <tbody>
         <tr class="box" *ngFor="let val of ltpdata" title="{{ sidData[val['sid']]['share_name'].substr(0,120) }}">
             <td data-label="Name">
-              <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;">
+              <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank">
               {{ sidData[val['sid']]['share_name'].substr(0,12) }}
               </a>
             </td>
           <td data-label="Sid">
-              <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;">
+              <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank">
                   {{ val['sid'] }}
               </a>
           </td>
