@@ -25,12 +25,12 @@
             </tr>
             <tr class="box" *ngFor="let val of ltpdata" title="{{ sidData[val['sid']]['share_name'].substr(0,120) }}">
                 <td>
-                    <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank">
+                    <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" >
                     {{ sidData[val['sid']]['share_name'].substr(0,12) }}
                     </a>
                 </td>
                 <td>
-                    <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank">
+                    <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" >
                         {{ val['sid'] }}
                     </a>
                 </td>

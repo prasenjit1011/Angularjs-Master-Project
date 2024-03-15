@@ -15,6 +15,7 @@ import { environment } from './../../../environments/environment';
 
 export class DemoComponent implements OnInit {
 
+  ltp = 0;
   profit  = 0;
   cmprice = 0;
   ltpdata = undefined;
