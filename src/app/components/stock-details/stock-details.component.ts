@@ -14,6 +14,7 @@ import { environment } from './../../../environments/environment';
 export class StockDetailsComponent {
   sid = undefined;
   shareName     = undefined;
+  sharePrice    = 0;
   shareDetails  = undefined;
   transaction   = undefined;
   weeklyData    = undefined;
@@ -66,8 +67,10 @@ export class StockDetailsComponent {
           catchError(this.handleError)
         )
         .subscribe(data=>(
+          console.log(data['shareDetails']['ltp']),
           this.shareDetails = data['shareDetails'],
           this.shareName    = data['shareDetails']['share_name'],
+          this.sharePrice   = data['shareDetails']['ltp'],
           this.transaction  = data['transactionDetails'],
           this.weeklyData   = data['weeklyData'].reverse(),
           this.oneYear      = data['oneYearData'].reverse(),
@@ -92,7 +95,7 @@ export class StockDetailsComponent {
       }
     });
 
-    this.holdingCMP = this.holdingQty*this.shareDetails['ltp']
+    this.holdingCMP = this.holdingQty*this.sharePrice;
     this.invStatus  = this.buyTotal-this.sellTotal > 0 ? true:false;
   }
 

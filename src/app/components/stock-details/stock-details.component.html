@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <td>LTP</td>
-                    <td class="price">{{ shareDetails['ltp'] | number:'1.0-0' }}</td>
+                    <td class="price">{{ sharePrice | number:'1.0-0' }}</td>
                 </tr>
                 <tr>
                     <td>CurPurPrice</td>
@@ -198,7 +198,7 @@
         <td>{{ val['orderRef'] }}</td>
         <td>{{ val['date'] | date: 'dd/MM/yyyy' }}</td>
         <td>{{ val['action'] }}</td>
-        <td class="price">{{ shareDetails['ltp'] | number:'1.0-0' }}</td>
+        <td class="price">{{ sharePrice | number:'1.0-0' }}</td>
         <td class="price">{{ val['price'] | number:'1.0-0' }}</td>
         <td class="price">{{ val['qty'] }}</td>
         <td></td>
