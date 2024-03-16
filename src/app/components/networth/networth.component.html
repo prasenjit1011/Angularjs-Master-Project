@@ -59,12 +59,12 @@
                         <tr *ngFor="let val of portfolio; let sl=index;">
                             <td>{{ sl+1 }}</td>
                             <td>
-                                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" >
+                                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank"  >
                                     {{val['sid']}}
                                 </a>
                             </td>
                             <td>
-                                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" >
+                                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank"  >
                                     {{val['stock']}}
                                 </a>
                             </td>
