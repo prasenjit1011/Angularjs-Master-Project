@@ -72,9 +72,9 @@ export class StockDetailsComponent {
           this.shareName    = data['shareDetails']['share_name'],
           this.sharePrice   = data['shareDetails']['ltp'],
           this.transaction  = data['transactionDetails'],
-          this.weeklyData   = data['weeklyData'].reverse(),
-          this.oneYear      = data['oneYearData'].reverse(),
-          this.historyData  = data['historyData'].reverse(),
+          this.weeklyData   = (data['weeklyData'] == undefined && data['weeklyData'].length > 0) ? data['weeklyData'].reverse() : [],
+          this.oneYear      = (data['oneYearData'] == undefined && data['oneYearData'].length > 0) ? data['oneYearData'].reverse() : [],
+          this.historyData  = (data['historyData'] == undefined && data['historyData'].length > 0) ? data['historyData'].reverse() : [],
           this.holdingData(),
           this.stockUrl()
         ));
