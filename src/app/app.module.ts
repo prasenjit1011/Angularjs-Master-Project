@@ -16,12 +16,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoComponent } from './components/demo/demo.component';
 
 const appRoute = [
-  {path : '', component: TickerTapeComponent},
+  {path : 'demo', component: TickerTapeComponent},
   {path : 'dashboard', component: DashboardComponent},
   {path : 'details/:sid', component: StockDetailsComponent},
   {path : 'networth', component: NetworthComponent},
   {path : 'activity', component: ActivityComponent},
-  {path : 'demo', component: DemoComponent},
+  {path : '', component: DemoComponent},
 ];
 
 @NgModule({
