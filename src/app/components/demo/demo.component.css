@@ -44,7 +44,15 @@ table th{
   background-color: #3cddc7;
 }
 
+.mobileBtn{
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
+  .mobileBtn{
+    display: block;
+  }
+    
   .hide{
     display: none;
   }

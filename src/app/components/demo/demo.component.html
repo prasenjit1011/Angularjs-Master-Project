@@ -1,3 +1,26 @@
+<div style="width: 100%; height: auto;" class="mobileBtn">
+    <span>Sort By :</span>
+    <button (click)="this.sortData('sid')">Name</button> &nbsp; 
+    <button (click)="this.sortData('sid')">Sid</button> &nbsp; 
+    <button (click)="this.sortData('qty')">
+        Qty ({{ cmprice | number:'1.0-0' }})
+    </button> &nbsp; 
+    <button>
+        {{ profit < 0 ? 'Invest' : 'Profit' }} 
+        ({{ profit | number:'1.0-0' }})
+    </button> &nbsp; 
+    <button (click)="this.sortData('price')" >LTP {{ sortBy }}/{{ sortType }}</button> &nbsp; 
+    <button (click)="this.sortData('dyChange')">dyChange</button> &nbsp; 
+    <button (click)="this.sortData('wkChange')">wkChange</button> &nbsp; 
+    <button (click)="this.sortData('mnChange')">mnChange</button> &nbsp; 
+    <button (click)="this.sortData('low52w')">low52w</button> &nbsp; 
+    <button (click)="this.sortData('high52w')">high52w</button> &nbsp; 
+    <button (click)="this.sortData('vol')">vol</button> &nbsp; 
+</div>
+
+
+
+
 <table>
     <thead>
         <tr>
@@ -64,4 +87,4 @@
           </td>
       </tr>
     </tbody>
-  </table>
+</table>
