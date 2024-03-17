@@ -51,7 +51,15 @@ table th{
 @media screen and (max-width: 600px) {
   .mobileBtn{
     display: block;
+    margin: 2px;
+    width: 100%; 
+    height: auto;
   }
+
+  .mobileBtn button{
+    margin: 5px;
+  }
+
     
   .hide{
     display: none;
