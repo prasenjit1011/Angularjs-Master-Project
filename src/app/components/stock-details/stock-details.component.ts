@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, retry, throwError } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { environment } from './../../../environments/environment';
 
 @Component({
@@ -12,7 +13,7 @@ import { environment } from './../../../environments/environment';
 })
 
 export class StockDetailsComponent {
-  sid = undefined;
+  sid           = undefined;
   shareName     = undefined;
   sharePrice    = 0;
   shareDetails  = undefined;
@@ -27,6 +28,10 @@ export class StockDetailsComponent {
   holdingCMP    = 0;
   apiHost       = environment.apiHost;
   stockUrlArr   = [];
+
+  updSid        = '';
+  updStockCode  = '';
+  updStockName  = '';
 
   constructor(private route:ActivatedRoute, private http: HttpClient, public datepipe: DatePipe){
     this.apidata();
@@ -118,5 +123,7 @@ export class StockDetailsComponent {
       });
   }
 
-
+  onUpdateServerName(event: Event){
+    this.updSid = (<HTMLInputElement>event.target).value;
+  }
 }

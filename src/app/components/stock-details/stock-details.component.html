@@ -1,11 +1,13 @@
 <table class="mainContent" border="1">
     <tr>
         <td colspan="2" style="width: 50%;">
-            Share Name : {{ shareName }}
             <div style="width: 100%;">
-                <div style="float: left;">
+                <div class="shareTitle" style="float: left;">
+                    <input type="text" [(ngModel)]="shareName" />
+                    <input type="text" (input)="onUpdateServerName($event)" />
+                    <input type="text" [(ngModel)]="updStockCode" />
                 </div>
-                <div style="float: right;">
+                <div class="shareUrls">
                     <span *ngFor="let arr of stockUrlArr">
                         <a target="_blank" href="{{arr['val']}}" style="margin: 4px; color:blue;">
                             {{arr['key']}}
@@ -182,7 +184,6 @@
 <table class="tbl transaction" border="1">
     <tr>
         <th>SL.</th>
-        <th>Share Name</th>
         <th>Order Ref</th>
         <th>Date</th>
         <th>Type</th>
@@ -194,9 +195,8 @@
         <th>Sell ({{ sellTotal | number:'1.0-0' }})</th>
         <th>Acc</th>
     </tr>
-    <tr *ngFor="let val of transaction">
-        <td></td>
-        <td>{{ val['sid'] }}</td>
+    <tr *ngFor="let val of transaction; index as key">
+        <td>{{ key+1 }}</td>
         <td>{{ val['orderRef'] }}</td>
         <td>{{ val['date'] | date: 'dd/MM/yyyy' }}</td>
         <td>{{ val['action'] }}</td>
@@ -206,12 +206,12 @@
         <td></td>
         <td class="price">{{ val['action'] == 'Buy' ? (val['tradeValue'] | number:'1.0-0') :'' }}</td>
         <td class="price">{{ val['action'] == 'Sell' ? (val['tradeValue'] | number:'1.0-0') :'' }}</td>
-        <td>{{ val['DpidClientId'] }}</td>        
+        <td>{{ val['DpidClientId']  == 'IN303028-7573701615' ? 'P':'R' }}</td>
     </tr>
+    <tr><td colspan="12"></td></tr>
     <tr>
         <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ shareName }} ({{ sid }}) </td>
         <td></td>
         <td>Holding</td>
         <td></td>

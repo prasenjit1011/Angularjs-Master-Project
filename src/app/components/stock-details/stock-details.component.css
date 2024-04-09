@@ -48,6 +48,21 @@
 .skyBg{
     background-color: #3cddc7;
 }
+
 .orangeBg{
     background-color: #fdb813;
+}
+
+.shareTitle input{
+    background-color: transparent;
+    padding: 3px;
+    font-size: small;
+    margin-left: 5px;
+    border: 0px solid #3cddc7;
+    border-right: 1px solid #3cddc7;
+}
+
+.shareUrls{
+    float: right;
+    margin-top: 3px;
 }
