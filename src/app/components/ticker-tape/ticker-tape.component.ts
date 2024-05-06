@@ -47,6 +47,9 @@ export class TickerTapeComponent implements OnInit {
       console.error(
         `Backend returned code ${error.status}, body was: `, error.error);
     }
+
+    alert('Something bad happened; Please check your API or Restart sandbox,  https://codesandbox.io/p/github/prasenjit1011/dematSandbox/tickertape');
+
     // Return an observable with a user-facing error message.
     return throwError(() => {
         this.apiStatus = false;
@@ -57,7 +60,7 @@ export class TickerTapeComponent implements OnInit {
 
 
   apidata(){
-    
+    console.log('--Fetch API Data--')
     if(!this.apiStatus)return false;
 
     let apiUrl = this.apiHost+'/stock/list';

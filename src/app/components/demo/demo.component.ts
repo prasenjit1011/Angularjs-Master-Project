@@ -54,9 +54,11 @@ export class DemoComponent implements OnInit {
       console.error(
         `Backend returned code ${error.status}, body was: `, error.error);
     }
+
+
     // Return an observable with a user-facing error message.
     return throwError(() => {
-        this.apiStatus = false;
+        //this.apiStatus = false;
         alert('Something bad happened; Please check your API or Restart sandbox,  https://codesandbox.io/p/github/prasenjit1011/dematSandbox/tickertape');
         new Error('Something bad happened; Please check your API.');
       });
@@ -65,8 +67,12 @@ export class DemoComponent implements OnInit {
 
   apidata(){
     
-    if(!this.apiStatus)return false;
+    console.log('--Fetch API Data--123', this.apiStatus);
 
+
+    if(!this?.apiStatus)return false;
+
+    this.apiStatus = false;
     let apiUrl = this.apiHost+'/stock/list';
     this.http
         .get(apiUrl)
@@ -75,6 +81,7 @@ export class DemoComponent implements OnInit {
           catchError(this.handleError)
         )
         .subscribe(data=>(
+          this.apiStatus = true,
           this.sidData  = data['sidData'],
           this.ltpdata  = data['apiData'],
           this.dayStatus(),
