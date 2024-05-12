@@ -50,14 +50,6 @@ export class StockDetailsComponent {
     this.stockUrlArr.push({key:'growUrl', val:"https://www.google.com/search?q=groww+"+this.shareName});;
     this.stockUrlArr.push({key:'m4m', val:"https://www.google.com/search?q=moneyworks4me+"+this.shareName});;
     this.stockUrlArr.push({key:'tapi', val:"https://quotes-api.tickertape.in/quotes?sids="+this.sid});;
-
-    
-    console.log(this.stockUrlArr);
-    
-
-
-
-
   }
 
   apidata(){
@@ -72,7 +64,6 @@ export class StockDetailsComponent {
           catchError(this.handleError)
         )
         .subscribe(data=>(
-          console.log(data['shareDetails']['ltp']),
           this.shareDetails = data['shareDetails'],
           this.shareName    = data['shareDetails']['share_name'],
           this.sharePrice   = data['shareDetails']['ltp'],
