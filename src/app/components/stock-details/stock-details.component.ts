@@ -15,6 +15,9 @@ import { environment } from './../../../environments/environment';
 export class StockDetailsComponent {
   sid           = undefined;
   shareName     = undefined;
+  nseCode       = undefined;
+  iciciCode     = undefined;
+  growCode      = undefined;
   sharePrice    = 0;
   shareDetails  = undefined;
   transaction   = undefined;
@@ -64,9 +67,9 @@ export class StockDetailsComponent {
           catchError(this.handleError)
         )
         .subscribe(data=>(
-          this.shareDetails = data['shareDetails'],
-          this.shareName    = data['shareDetails']['share_name'],
-          this.sharePrice   = data['shareDetails']['ltp'],
+          this.shareDetails = data['shareDetails'] ? data['shareDetails'] : [],
+          this.shareName    = data['shareDetails'] ? data['shareDetails']['share_name'] : '',
+          this.sharePrice   = data['shareDetails'] ? data['shareDetails']['ltp'] : 0,
           this.transaction  = data['transactionDetails'],
           this.weeklyData   = data['weeklyData'].reverse(),
           this.oneYear      = data['oneYearData'].reverse(),
@@ -114,7 +117,20 @@ export class StockDetailsComponent {
       });
   }
 
-  onUpdateServerName(event: Event){
-    this.updSid = (<HTMLInputElement>event.target).value;
+  updParamVal(event: Event, paramName){
+
+    let apiUrl = this.apiHost+'/updStockParam';
+    let paramValue = (<HTMLInputElement>event.target).value;
+    this.http
+        .post(apiUrl, {sid:this.sid, paramName, paramValue})
+        .subscribe(data=>(
+          console.log('- here -')
+        ));
+        // .pipe(
+        //   retry(3),
+        //   catchError(this.handleError)
+        // );
+    console.log('=======', paramName, this.updSid);
+
   }
 }

@@ -2,18 +2,23 @@
     <tr>
         <td colspan="2" style="width: 50%;">
             <div style="width: 100%;">
-                <div class="shareTitle" style="float: left;">
-                    <input type="text" [(ngModel)]="shareName" />
-                    <input type="text" (input)="onUpdateServerName($event)" />
-                    <input type="text" [(ngModel)]="updStockCode" />
+                <div class="shareTitle">
+                    <input type="text" (keydown.enter)="updParamVal($event, 'share_name')" [(ngModel)]="shareName" placeholder="Share Name" />
+                </div>
+                <div class="shareCode">
+                    <input type="text" (keydown.enter)="updParamVal($event, 'sidCode')"   [(ngModel)]="sid" placeholder="Ticker SID" />
+                    <input type="text" (keydown.enter)="updParamVal($event, 'nseCode')"   [(ngModel)]="shareDetails.nseCode"  placeholder="NSE Code" />
+                    <input type="text" (keydown.enter)="updParamVal($event, 'iciciCode')" [(ngModel)]="iciciCode" placeholder="iciciCode" />
+                    <input type="text" (keydown.enter)="updParamVal($event, 'growCode')"  [(ngModel)]="growCode" placeholder="growCode**" />
                 </div>
                 <div class="shareUrls">
                     <span *ngFor="let arr of stockUrlArr">
                         <a target="_blank" href="{{arr['val']}}" style="margin: 4px; color:blue;">
                             {{arr['key']}}
-                        </a>
+                        </a> | 
                     </span>
                 </div>
+                
             </div>
         </td>
         <td rowspan="3" style="width: 25%;">
