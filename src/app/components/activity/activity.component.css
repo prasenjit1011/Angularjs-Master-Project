@@ -9,3 +9,8 @@ table{
 td{
     text-align: center;
 }
+
+a{
+    color: blue;
+    margin: 2px 17px;
+}
