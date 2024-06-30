@@ -14,3 +14,7 @@ a{
     color: blue;
     margin: 2px 17px;
 }
+
+.nifty50 td{
+    text-align: left;
+}
