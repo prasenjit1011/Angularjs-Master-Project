@@ -22,7 +22,8 @@ export class DashboardComponent implements OnInit  {
       ajax:
       {
         url: this.apiHost+'/stock/list',
-        dataSrc: 'apiData'
+        dataSrc: 'apiData',
+        processData: true
       },
       rowCallback: (row: Node, data: any[] | Object, index: number) => {
         if(data['change'] > 5){
@@ -31,10 +32,18 @@ export class DashboardComponent implements OnInit  {
         if(data['change'] < -0.5){
           $('td:nth-child(3)', row).css('background-color', '#e88320')
         }
+
+        $('td:nth-child(1)', row).html('<a href="">hello</a>');
+        $('td:nth-child(1)', row).html('<a href="/details/'+data['sid']+'" target="_blank">'+data['share_name']+'</a>');
+
+        console.log(data);
       },
       columns: [{
-          title: 'SID',
+          title: 'Name',
           data: 'sid'
+        }, {
+          title: 'SID',
+          data: 'sid'          
         }, {
           title: 'LTP',
           data: 'price'

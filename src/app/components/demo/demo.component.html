@@ -26,6 +26,7 @@
         <tr>
         <th scope="col" (click)="this.sortData('sid')">Name</th>
         <th scope="col" (click)="this.sortData('sid')">Sid</th>
+        <th scope="col" (click)="this.sortData('sharecode')">sharecode</th>
         <th scope="col" class="amt" (click)="this.sortData('qty')">
             Qty 
             ({{ cmprice | number:'1.0-0' }})
@@ -53,12 +54,17 @@
               {{ sidData[val['sid']]['share_name'].substr(0,12) }}
               </a>
             </td>
-          <td data-label="Sid">
-              <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank"  >
-                  {{ val['sid'] }}
-              </a>
-          </td>
-          <td data-label="Qty" class="amt">
+            <td data-label="Sid">
+                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank"  >
+                    {{ val['sid'] }}
+                </a>
+            </td>
+            <td data-label="Sid">
+                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank"  >
+                    {{ val['sharecode'] }}
+                </a>
+            </td>
+            <td data-label="Qty" class="amt">
               {{ sidData[val['sid']]['qty'] }}
           </td>
           <td data-label="D.Change" class="amt">
