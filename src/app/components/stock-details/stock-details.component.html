@@ -4,6 +4,7 @@
             <div style="width: 100%;">
                 <div class="shareTitle">
                     <input type="text" (keydown.enter)="updParamVal($event, 'share_name')" [(ngModel)]="shareName" placeholder="Share Name" />
+                    <input type="text" (keydown.enter)="updParamVal($event, 'rank')" [(ngModel)]="shareRank" placeholder="Share Rank" />
                 </div>
                 <div class="shareCode">
                     <input type="text" (keydown.enter)="updParamVal($event, 'sidCode')"   [(ngModel)]="sid" placeholder="Ticker SID" />

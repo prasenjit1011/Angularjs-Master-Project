@@ -15,6 +15,7 @@ import { environment } from './../../../environments/environment';
 export class StockDetailsComponent {
   sid           = undefined;
   shareName     = undefined;
+  shareRank     = undefined;
   nseCode       = undefined;
   iciciCode     = undefined;
   growCode      = undefined;
@@ -36,6 +37,18 @@ export class StockDetailsComponent {
   updStockCode  = '';
   updStockName  = '';
 
+  searchURL     = '';
+  nseUrl        = "https://www.nseindia.com/get-quotes/equity?symbol=";
+  ipoUrl        = "https://www.google.com/search?q=ipo+";
+  priceChkUrl   = "https://www.google.com/search?q=share+price+";
+  tradingUrl    = "https://www.google.com/search?q=share+price+tradingview+";
+  tickerUrl     = "https://www.tickertape.in/stocks/"+this.sid+"?chartScope=1mo";
+  moneyCtrlUrl  = "https://www.google.com/search?q=moneycontrol+";
+  growUrl       = "https://www.google.com/search?q=groww+";
+  m4mUrl        = "https://www.google.com/search?q=moneyworks4me+"+this.shareName;;
+  tapiUrl       = "https://quotes-api.tickertape.in/quotes?sids="+this.sid;;
+
+
   constructor(private route:ActivatedRoute, private http: HttpClient, public datepipe: DatePipe){
     this.apidata();
     ;
@@ -43,20 +56,21 @@ export class StockDetailsComponent {
 
   stockUrl(){
 
-    this.stockUrlArr.push({key:'nseUrl', val:"https://www.nseindia.com/get-quotes/equity?symbol="});//CAMPUS
-    this.stockUrlArr.push({key:'ipo', val:"https://www.google.com/search?q=ipo+"+this.shareName});;
-    this.stockUrlArr.push({key:'priceChk', val:"https://www.google.com/search?q=share+price+"+this.shareName});;
-    this.stockUrlArr.push({key:'trading', val:"https://www.google.com/search?q=share+price+ tradingview+"+this.shareName});;
-    
+    this.searchURL = this.priceChkUrl+this.shareName;    
+    this.stockUrlArr.push({key:'nseUrl', val: this.nseCode ? this.nseUrl+this.nseCode : this.searchURL});
+    this.stockUrlArr.push({key:'ipo', val: this.ipoUrl+this.shareName});;
+    this.stockUrlArr.push({key:'priceChk', val: this.searchURL});;
+    this.stockUrlArr.push({key:'trading', val: this.searchURL+"+tradingview+"+this.shareName});    
     this.stockUrlArr.push({key:'ticker', val:"https://www.tickertape.in/stocks/"+this.sid+"?chartScope=1mo"});;
     this.stockUrlArr.push({key:'moneyCtrl', val:"https://www.google.com/search?q=moneycontrol+"+this.shareName});;
     this.stockUrlArr.push({key:'growUrl', val:"https://www.google.com/search?q=groww+"+this.shareName});;
     this.stockUrlArr.push({key:'m4m', val:"https://www.google.com/search?q=moneyworks4me+"+this.shareName});;
     this.stockUrlArr.push({key:'tapi', val:"https://quotes-api.tickertape.in/quotes?sids="+this.sid});;
+
   }
 
   apidata(){
-    this.sid = this.route.snapshot.params['sid'];
+    this.sid = this.route.snapshot.params['sid'];    
     console.log('Sid :::: ', this.sid);
   
     let apiUrl = this.apiHost+'/stock/details/'+this.sid;
@@ -69,7 +83,13 @@ export class StockDetailsComponent {
         .subscribe(data=>(
           this.shareDetails = data['shareDetails'] ? data['shareDetails'] : [],
           this.shareName    = data['shareDetails'] ? data['shareDetails']['share_name'] : '',
+          this.shareRank    = data['shareDetails'] ? data['shareDetails']['rank'] : 0,        
           this.sharePrice   = data['shareDetails'] ? data['shareDetails']['ltp'] : 0,
+
+          this.nseCode      = data['shareDetails'] ? data['shareDetails']['nseCode'] : 0,
+          this.iciciCode    = data['shareDetails'] ? data['shareDetails']['iciciCode'] : 0,
+          this.growCode     = data['shareDetails'] ? data['shareDetails']['growCode'] : 0,
+
           this.transaction  = data['transactionDetails'],
           this.weeklyData   = data['weeklyData'].reverse(),
           this.oneYear      = data['oneYearData'].reverse(),

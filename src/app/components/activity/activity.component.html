@@ -5,33 +5,48 @@
             <a href="https://www.chittorgarh.com/report/mainboard-ipo-list-in-india-bse-nse/83/" target="_blank">Chittorgarh</a>
             <a href="https://www.investorgain.com/report/live-ipo-gmp/331/" target="_blank">Investorgain</a>
             <a href="https://invest.upstox.com/ipo/applications" target="_blank">UpStock</a>
-            <a href="https://www.5paisa.com/nifty-50-stocks-list" target="_blank">N50</a>
+            <a href="https://www.5paisa.com/nifty-50-stocks-list" target="_blank">Nifty-50</a>
             <a href="https://in.investing.com/" target="_blank">Investing</a>
             <a href="https://codesandbox.io/p/github/prasenjit1011/dematSandbox/tickertape" target="_blank">CodeSandBox</a>
             <a href="https://cloud.mongodb.com/v2/65a000d7e3a5563410a0f43b#/metrics/replicaSet/65a0010b250b252ebbbd1382/explorer/demat/tradebooks/find" target="_blank">MongoDB</a>
+            <a href="https://www.youtube.com/watch?v=SUZKhBvxW5c&list=PLRAV69dS1uWQ6CZCehxKy0rjkqhQ2Z88t&index=1&pp=iAQB">
+                MongoDB 1
+            </a> 
         </th>
     </tr>
     <tr>
         <td>
             CodeSandBox Restart : Ctrl+Shift+P -> Instance Rebuild and Restart
         </td>
+    </tr>    
+    <tr>
+        <td>
+            php -S localhost:8000 -t "."
+        </td>
     </tr>
     <tr>
         <td>
-            <b>MongoDB : </b> &nbsp; 
-            <a href="https://www.youtube.com/watch?v=SUZKhBvxW5c&list=PLRAV69dS1uWQ6CZCehxKy0rjkqhQ2Z88t&index=1&pp=iAQB">
-                Tutorial 1
-            </a> &nbsp;
+            <input type="text" placeholder="Sid" [(ngModel)]="sid" /> &nbsp;
+            <input type="text" placeholder="Share Name" [(ngModel)]="shareName" /> &nbsp;
+            <input type="button" value="Search" style="cursor: pointer;" (click)="searchShare()" /> &nbsp;
+            <input type="button" value="Save" style="cursor: pointer;" (click)="addShare()" />
         </td>
-    </tr>    
+    </tr>
 </table>
 <br />
 <br />
 
 <table class="nifty50">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>LTP</th>
+        </tr>
+    </thead>
+    <tbody>
     <tr>
     <td>
-    <a href="https://www.5paisa.com/stocks/asianpaint-share-price">Asian Paints Ltd</a>
+        <a href="https://www.5paisa.com/stocks/asianpaint-share-price">Asian Paints Ltd</a>
     </td>
     </tr>
     <tr>
@@ -279,6 +294,7 @@
     <a href="https://www.5paisa.com/stocks/bajajfinsv-share-price">Bajaj Finserv Ltd</a>
     </td>
     </tr>
+</tbody>
     </table>
 
 

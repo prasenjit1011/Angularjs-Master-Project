@@ -45,6 +45,9 @@ export class DashboardComponent implements OnInit  {
           title: 'SID',
           data: 'sid'          
         }, {
+          title: 'Rank',
+          data: 'rank'          
+        }, {
           title: 'LTP',
           data: 'price'
         }, {
@@ -98,7 +101,11 @@ export class DashboardComponent implements OnInit  {
         }, {
           title: 'high52w',
           data: 'high52w'
-      }]
+        }, {
+          title: 'Name',
+          data: 'share_name'
+        }
+      ]
     }
   }
 
