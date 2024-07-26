@@ -32,3 +32,7 @@ th{
 .amt{
     text-align: right;
 }
+
+a{
+    color: blue !important;
+}

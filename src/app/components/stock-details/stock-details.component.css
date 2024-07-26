@@ -43,6 +43,7 @@
 
 .transaction{
     padding: 6px;
+    margin: 10px 0 40px 0;
 }
 
 .skyBg{
@@ -77,4 +78,28 @@
     margin: 5px 5px;
     border: 0px solid #3cddc7;
     border-bottom: 1px solid #3cddc7;
+}
+
+.scrollmenuWeekly{
+    background-color: #3cddc7;
+    margin: 10px 0;
+}
+
+.scrollmenu {
+    background-color: #3cddc7;
+    overflow: auto;
+    /*height: 140px;*/
+    white-space: nowrap;
+    margin: 15px 0;
+}
+
+.scrollmenu table{
+    /*width: 8000px;*/
+    border-collapse: collapse;
+    border: 1px solid;
+}
+
+.scrollmenu table td{
+    text-align: right;
+    padding: 5px 8px 5px 15px;
 }

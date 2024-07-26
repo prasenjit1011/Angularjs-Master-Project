@@ -112,6 +112,119 @@
 </table>
 <br />
 
+
+
+<div class="scrollmenuWeekly">
+    <table class="tbl" border="1">
+        <tr>
+            <td>Weekly Data</td>
+            <td *ngFor="let val of weeklyData">
+                {{ val['date'] }}
+            </td>
+        </tr>
+        <tr>
+            <td>Min</td>
+            <td *ngFor="let val of weeklyData">
+                {{ val['min'] | number:'1.0-0' }}
+            </td>
+        </tr>
+        <tr>
+            <td>Max</td>
+            <td *ngFor="let val of weeklyData">
+                {{ val['max'] | number:'1.0-0' }}
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div class="scrollmenu">
+    <table class="tbl" border="1">
+        <tr>
+            <td>Prev. Year</td>
+            <td *ngFor="let val of oneYear" class="dtd">
+                {{ val[0]*1000 | date: 'dd/MM/yyyy' }}
+            </td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td *ngFor="let val of oneYear" class="price">
+                {{ val[1] | number:'1.0-0' }}
+            </td>
+        </tr>
+        
+    </table>
+</div>
+
+<div class="scrollmenu">
+    <table class="tbl" border="1">
+        <tr>
+            <td>Yearly Data</td>
+            <td *ngFor="let val of historyData" class="dtd">
+                {{ val[0]*1000 | date: 'dd/MM/yyyy' }}
+            </td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td *ngFor="let val of historyData" class="price">
+                {{ val[1] | number:'1.0-0' }}
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+
+<table class="tbl transaction" border="1">
+    <tr>
+        <th>SL.</th>
+        <th>Order Ref</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>LTP</th>
+        <th>Cost</th>
+        <th>Qty</th>
+        <th>Total Profit ({{ (holdingCMP+sellTotal-buyTotal) | number:'1.0-0'}})</th>
+        <th>Buy ({{ buyTotal | number:'1.0-0' }})</th>
+        <th>Sell ({{ sellTotal | number:'1.0-0' }})</th>
+        <th>Acc</th>
+    </tr>
+    <tr *ngFor="let val of transaction; index as key">
+        <td>{{ key+1 }}</td>
+        <td>{{ val['orderRef'] }}</td>
+        <td>{{ val['date'] | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ val['action'] }}</td>
+        <td class="price">{{ sharePrice | number:'1.0-0' }}</td>
+        <td class="price">{{ val['price'] | number:'1.0-0' }}</td>
+        <td class="price">{{ val['qty'] }}</td>
+        <td></td>
+        <td class="price">{{ val['action'] == 'Buy' ? (val['tradeValue'] | number:'1.0-0') :'' }}</td>
+        <td class="price">{{ val['action'] == 'Sell' ? (val['tradeValue'] | number:'1.0-0') :'' }}</td>
+        <td>{{ val['DpidClientId']  == 'IN303028-7573701615' ? 'P':'R' }}</td>
+    </tr>
+    <tr><td colspan="12"></td></tr>
+    <tr>
+        <td></td>
+        <td>{{ shareName }} ({{ sid }}) </td>
+        <td></td>
+        <td>Holding</td>
+        <td></td>
+        <td></td>
+        <td class="price">{{ holdingQty }}</td>
+        <td class="price">{{ holdingCMP | number:'1.0-0' }}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<br />
+
+
 <table class="tbl" border="1">
     <tr>
         <td>dyCh</td>
@@ -187,51 +300,6 @@
 
 <br />
 
-<table class="tbl transaction" border="1">
-    <tr>
-        <th>SL.</th>
-        <th>Order Ref</th>
-        <th>Date</th>
-        <th>Type</th>
-        <th>LTP</th>
-        <th>Cost</th>
-        <th>Qty</th>
-        <th>Total Profit ({{ (holdingCMP+sellTotal-buyTotal) | number:'1.0-0'}})</th>
-        <th>Buy ({{ buyTotal | number:'1.0-0' }})</th>
-        <th>Sell ({{ sellTotal | number:'1.0-0' }})</th>
-        <th>Acc</th>
-    </tr>
-    <tr *ngFor="let val of transaction; index as key">
-        <td>{{ key+1 }}</td>
-        <td>{{ val['orderRef'] }}</td>
-        <td>{{ val['date'] | date: 'dd/MM/yyyy' }}</td>
-        <td>{{ val['action'] }}</td>
-        <td class="price">{{ sharePrice | number:'1.0-0' }}</td>
-        <td class="price">{{ val['price'] | number:'1.0-0' }}</td>
-        <td class="price">{{ val['qty'] }}</td>
-        <td></td>
-        <td class="price">{{ val['action'] == 'Buy' ? (val['tradeValue'] | number:'1.0-0') :'' }}</td>
-        <td class="price">{{ val['action'] == 'Sell' ? (val['tradeValue'] | number:'1.0-0') :'' }}</td>
-        <td>{{ val['DpidClientId']  == 'IN303028-7573701615' ? 'P':'R' }}</td>
-    </tr>
-    <tr><td colspan="12"></td></tr>
-    <tr>
-        <td></td>
-        <td>{{ shareName }} ({{ sid }}) </td>
-        <td></td>
-        <td>Holding</td>
-        <td></td>
-        <td></td>
-        <td class="price">{{ holdingQty }}</td>
-        <td class="price">{{ holdingCMP | number:'1.0-0' }}</td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
-
-<br />
-
 <table class="tbl tblBorder" border="0">
     <tr>
         <td style="width: 45%; vertical-align: baseline; padding: 0px 10px 0 0;">
@@ -246,33 +314,7 @@
                 </tr>
             </table>
         </td>
-        <td style="width: 25%; padding: 0px 10px;">
-            <table class="tbl" border="1">
-                <tr><th colspan="3">Weekly Data</th>
-                <tr><th>Date</th><th>Min</th><th>Max</th></tr>
-                <tr *ngFor="let val of weeklyData">
-                    <td class="dtd">{{ val['date'] }}</td>
-                    <td class="price">{{ val['min'] | number:'1.0-0' }}</td>
-                    <td class="price">{{ val['max'] | number:'1.0-0' }}</td>
-                </tr>
-            </table>
-            <br />
-            <table class="tbl" border="1">
-                <tr><th>Historical Data</th><th>Price</th></tr>
-                <tr *ngFor="let val of historyData">
-                    <td class="dtd">{{ val[0]*1000 | date: 'dd/MM/yyyy' }}</td>
-                    <td class="price">{{ val[1] | number:'1.0-0' }}</td>
-                </tr>
-            </table>
-            <br />
-            <table class="tbl" border="1">
-                <tr><th>Yearly Data</th><th>Price</th></tr>
-                <tr *ngFor="let val of oneYear">
-                    <td class="dtd">{{ val[0]*1000 | date: 'dd/MM/yyyy' }}</td>
-                    <td class="price">{{ val[1] | number:'1.0-0' }}</td>
-                </tr>
-            </table>
-        </td>
+        
         <td style="width: 30%; vertical-align: baseline; padding: 0px 10px;">UPDATE demat SET algo_status = 1 WHERE id IN ( SELECT DISTINCT d.id FROM `stock_pricehistory` sph LEFT JOIN demat d ON d.sid = sph.sid WHERE ltp < sph.min_price * 1.05 AND sph.year < 2023 AND sph.year > 2019 AND ltp > 100 and ltp < 200 )</td>
     </tr>
 </table>
