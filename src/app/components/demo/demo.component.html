@@ -26,6 +26,8 @@
         <tr>
         <th scope="col" (click)="this.sortData('sid')">Name</th>
         <th scope="col" (click)="this.sortData('sid')">Sid</th>
+        <th scope="col" (click)="this.sortData('sid')">Stock</th>
+        <th scope="col" (click)="this.sortData('sid')">Icici</th>
         <th scope="col" (click)="this.sortData('sharecode')">sharecode</th>
         <th scope="col" class="amt" (click)="this.sortData('qty')">
             Qty 
@@ -44,7 +46,7 @@
         <th scope="col" (click)="this.sortData('vol')">vol</th>
         </tr>
         <tr data-label="Loading" class="{{ !ltpdata ? '' : 'hide'}}" >
-            <th colspan="12">Loading Data....</th>
+            <th colspan="14">Loading Data....</th>
         </tr>
     </thead>
     <tbody>
@@ -57,6 +59,16 @@
             <td data-label="Sid">
                 <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank"  >
                     {{ val['sid'] }}
+                </a>
+            </td>
+            <td data-label="Sid">
+                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank"  >
+                    {{ val['stock'] }}
+                </a>
+            </td>
+            <td data-label="Sid">
+                <a routerLink="/details/{{ val['sid'] }}" style="cursor: pointer;" target="_blank"  >
+                    {{ val['iciciCode'] }}
                 </a>
             </td>
             <td data-label="Sid">
