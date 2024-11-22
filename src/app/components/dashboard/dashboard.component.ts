@@ -43,7 +43,13 @@ export class DashboardComponent implements OnInit  {
           data: 'sid'
         }, {
           title: 'SID',
-          data: 'sid'          
+          data: 'sid'  
+        }, {
+          title: 'Stock',
+          data: 'stock' 
+        }, {
+          title: 'Icici',
+          data: 'stock'           
         }, {
           title: 'Rank',
           data: 'rank'          
